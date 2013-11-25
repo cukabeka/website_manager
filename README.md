@@ -2,6 +2,7 @@ Website Manager AddOn für REDAXO 4.5+
 =====================================
 
 Ein Multidomain AddOn für REDAXO 4.5+
+Test
 
 Features
 --------
