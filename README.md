@@ -149,3 +149,4 @@ Credits
 * Website Manager uses KLogger PHP-Class: https://github.com/katzgrau/KLogger
 * Website Manager uses Spectrum Colorpicker: https://github.com/bgrins/spectrum
 * Website Manager Themes Plugin uses scssphp PHP-Class: https://github.com/leafo/scssphp/
+* jQuery UI: http://jqueryui.com/

@@ -3,7 +3,9 @@
 class rex_website_manager_prio_switch extends rex_prio_switch {
 	// overwritten to also update init file of website manager
 	public static function handleAjaxCall($page, $func, $table, $idField, $useLike) {
-		if (rex_request('page') == $page) {
+		global $REX;
+
+		if (isset($REX['USER']) && rex_request('page') == $page) {
 			self::$ajaxFunctionName = $func;
 		
 			if (rex_request('func') == self::$ajaxFunctionName) {
