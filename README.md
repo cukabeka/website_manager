@@ -81,6 +81,7 @@ Kompatible AddOns
 * Slice Status ab v2.0.0: https://github.com/RexDude/slice_status
 * String Table ab v1.3.1: https://github.com/RexDude/string_table
 * Tracking Code ab v1.0.0: https://github.com/RexDude/tracking_code
+* ClearCache ab v1.0.0 https://github.com/RexDude/clearcache
 
 Stand: 21. Mai 2013
 
