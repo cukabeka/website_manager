@@ -101,13 +101,7 @@ class rex_website_manager_utils {
 	protected static function getWebsiteNameFrontendLink() {
 		global $REX;
 
-		if (strlen($REX['WEBSITE_MANAGER']->getCurrentWebsite()->getTitle()) > 40) {
-			$class = ' small';
-		} else {
-			$class = '';
-		}
-
-		return '<h1 class="website-name-frontend-link' . $class . '"><a href="' . $REX['WEBSITE_MANAGER']->getCurrentWebsite()->getUrl() . '" onclick="window.open(this.href); return false">' . $REX['SERVERNAME'] . '</a></h1>';
+		return '<h1 class="website-name-frontend-link"><a href="' . $REX['WEBSITE_MANAGER']->getCurrentWebsite()->getUrl() . '" onclick="window.open(this.href); return false">' . $REX['SERVERNAME'] . '</a></h1>';
 	}
 
 	protected static function addJS() {

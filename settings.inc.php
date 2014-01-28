@@ -1,7 +1,7 @@
 <?php
 
 // this addons will be reinstalled if new website is added
-$REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons'] = array(); // e.g.: array('seo42', 'slice_status', 'string_table', 'tracking_code');
+$REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons'] = array(); // e.g.: array('seo42', 'slice_status', 'string_table', 'tracking_code', 'clearcache');
 
 // this plugins will be reinstalled if new website is added
 $REX['WEBSITE_MANAGER_SETTINGS']['reinstall_plugins'] = array(); // e.g.: array(array('be_utilities', 'hide_startarticle'));

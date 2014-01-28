@@ -32,6 +32,10 @@ h1.website-name-frontend-link {
     white-space: nowrap;
 }
 
+div#rex-navi-logout ul {
+    padding-top: 39px;
+}
+
 /* --------------------------------------------------- */
 
 .dd-select{ border-radius:2px; border:solid 1px #ccc; position:relative; cursor:pointer;}

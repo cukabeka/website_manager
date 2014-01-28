@@ -3,10 +3,13 @@ Website Manager - Changelog
 
 ### Version 2.0.0 DEV
 
-* Website Auswahl wird nun zurückgesetzt wenn ausgeloggt
-* Wenn der Benutzer keine Rechte hat für min. eine Website wird nun eine entsprechende Fehlermeldung angezeigt
-* Hilfe verbessert
+* Bei eingeschaltetem One Page Mode von SEO42 wird nun der Anzeigen-Link korrekt gesetzt
+* Plugin-Einbindung nicht mehr hartcodiert. Abschnitt "Entwicklung von Plugins für den Website Manager" zur Readme hinzugefügt.
+* Uninstall wird nur noch erlaubt wenn zuvor von Hand alle angelegten Websites wieder gelöscht wurden
 * Uninstall Messages verbessert
+* Website Auswahl wird nun zurückgesetzt auf die Master Website wenn ausgeloggt
+* Wenn der Benutzer keine Rechte hat für min. eine Website wird nun eine entsprechende Fehlermeldung angezeigt
+* Hilfe verbessert, Debug und Log Sections hinzugefügt
 * Finetuning
 
 ### Version 1.3.0 - 24. Oktober 2013

@@ -15,7 +15,8 @@ $chapterpages = array (
 	'' => array($I18N->msg('website_manager_help_chapter_readme'), 'pages/help/readme.inc.php'),
 	'changelog' => array($I18N->msg('website_manager_help_chapter_changelog'), 'pages/help/changelog.inc.php'),
 	'license' => array($I18N->msg('website_manager_help_chapter_license'), 'pages/help/license.inc.php'),
-	'debug' => array($I18N->msg('website_manager_help_chapter_debug'), 'pages/help/debug.inc.php')
+	'debug' => array($I18N->msg('website_manager_help_chapter_debug'), 'pages/help/debug.inc.php'),
+	'log' => array($I18N->msg('website_manager_help_chapter_log'), 'pages/help/log.inc.php')
 );
 
 // build chapter navigation

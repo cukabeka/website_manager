@@ -42,8 +42,12 @@ if ($REX['REDAXO'] && !$REX['SETUP']) {
 			array('', $I18N->msg('website_manager_websites'))
 		);
 
-		if (OOPlugin::isAvailable('website_manager', 'themes')) {
-			array_push($REX['ADDON']['website_manager']['SUBPAGES'], array('themes', $I18N->msg('website_manager_themes')));
+		// plugins (will be autoloaded incl. language file)
+		$plugins = OOPlugin::getAvailablePlugins('website_manager');
+
+		for ($i = 0; $i < count($plugins); $i++) {
+			$I18N->appendFile($REX['INCLUDE_PATH'] . '/addons/website_manager/plugins/' . $plugins[$i] . '/lang/'); // make msg for subpage available at this point 
+			array_push($REX['ADDON']['website_manager']['SUBPAGES'], array($plugins[$i], $I18N->msg('website_manager_' . $plugins[$i])));
 		}
 
 		array_push($REX['ADDON']['website_manager']['SUBPAGES'], 
@@ -84,7 +88,9 @@ if ($REX['REDAXO'] && !$REX['SETUP']) {
 		}
 
 		// fix article preview link
-		rex_register_extension('PAGE_CONTENT_MENU', 'rex_website_manager_utils::fixArticlePreviewLink');
+		if (!isset($REX['ADDON']['seo42']['settings']['one_page_mode']) || (isset($REX['ADDON']['seo42']['settings']['one_page_mode']) && !$REX['ADDON']['seo42']['settings']['one_page_mode'])) {
+			rex_register_extension('PAGE_CONTENT_MENU', 'rex_website_manager_utils::fixArticlePreviewLink');
+		}
 
 		// fix clang
 		rex_register_extension('CLANG_ADDED', 'rex_website_manager::fixClang');

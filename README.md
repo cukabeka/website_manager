@@ -109,6 +109,12 @@ if (isset($REX['MEDIA_DIR'])) {
 }
 ```
 
+Entwicklung von Plugins für den Website Manager
+-----------------------------------------------
+
+* Der Website Manager bindet automatisch seine installierten und aktvierten Plugins in das Addon-Menü ein.
+* Es wird ausserdem automatisch die Sprachdatei des Plugins eingebunden. Im Plugin selbst muss man also nichts weiter tun.
+
 Hinweise
 --------
 
