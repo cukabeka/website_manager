@@ -8,6 +8,7 @@ if (!OOAddon::isActivated('website_manager')) {
 	$REX['ADDON']['installmsg']['website_manager'] = $I18N->msg('website_manager_uninstall_activate_first');
 	$REX['ADDON']['install']['website_manager'] = 1;
 } else if (isset($REX['WEBSITE_MANAGER']) && $REX['WEBSITE_MANAGER']->getWebsiteCount() > 1) {
+	// user has to manually delete websites first
 	$REX['ADDON']['installmsg']['website_manager'] = $I18N->msg('website_manager_uninstall_delete_generated');
 	$REX['ADDON']['install']['website_manager'] = 1;
 } else if (isset($REX['WEBSITE_MANAGER_DO_UNINSTALL']) && !$REX['WEBSITE_MANAGER_DO_UNINSTALL']) {

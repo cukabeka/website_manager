@@ -50,13 +50,15 @@ if (version_compare($REX['VERSION'] . '.' . $REX['SUBVERSION'] . '.' . $REX['MIN
 
 	$error = $sql->getError();
 
-	//if ($error == '') {
-		rex_website_manager::updateInitFile();
-		rex_website_manager::fixClang(null);
+	
+	rex_website_manager::updateInitFile();
+	rex_website_manager::fixClang(null);
 
-		$REX['ADDON']['install']['website_manager'] = 1;
-	//} else {
-	//	$REX['ADDON']['installmsg']['website_manager'] = $error;
-	//}
+	rex_website_manager_utils::createCustomFile($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/create_website.before.inc.php');
+	rex_website_manager_utils::createCustomFile($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/create_website.after.inc.php');
+	rex_website_manager_utils::createCustomFile($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/destroy_website.before.inc.php');
+	rex_website_manager_utils::createCustomFile($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/destroy_website.after.inc.php');
+
+	$REX['ADDON']['install']['website_manager'] = 1;
 }
 ?>
