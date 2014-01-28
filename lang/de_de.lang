@@ -12,7 +12,6 @@ website_manager_prio_mode_off = Aus
 website_manager_prior = Reihenfolge
 website_manager_create_website_security_msg = Website mit ID = 1 darf nicht hinzugefügt werden!
 website_manager_destroy_website_security_msg = Website mit ID = 1 darf nicht gelöscht werden!
-website_manager_settings_msg = Bitte die Einstellungen in der <code>settings.inc.php</code> vornehmen.
 website_manager_install_rex_version = Dieses AddOn benötigt REDAXO Version 4.5.0 oder höher.
 website_manager_install_colorizer = Bitte deinstallieren Sie das Colorizer Plugin des Backend Utilities AddOns.
 website_manager_install_frontend_link = Bitte deinstallieren Sie das Frontend Link Plugin des Backend Utilities AddOns.

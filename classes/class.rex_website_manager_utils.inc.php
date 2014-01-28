@@ -208,16 +208,6 @@ class rex_website_manager_utils {
 		fclose($fileHandle);
 	}
 
-	public static function createCustomFile($file) {
-		if (!file_exists($file)) {
-			$fileHandle = fopen($file, 'w');
-
-			fwrite($fileHandle, "<?php\r\n");
-
-			fclose($fileHandle);
-		}
-	}
-
 	public static function sanitizeUrl($url) {
 		return preg_replace('@^https?://|/.*|[^\w.-]@', '', $url);
 	}

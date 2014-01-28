@@ -306,6 +306,9 @@ class rex_website_manager {
 			exit;
 		}
 
+		// include custom php file with additional userdefined stuff
+		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/create_website.before.inc.php');
+
 		// ***************************************************************************************************
 		// database tables
 		// ***************************************************************************************************
@@ -458,6 +461,9 @@ class rex_website_manager {
 			}
 		}
 
+		// include custom php file with additional userdefined stuff
+		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/create_website.after.inc.php');
+
 		// put back stuff for master website
 		$REX['TABLE_PREFIX'] = rex_website::tablePrefix;
 		$REX['GENERATED_PATH'] = realpath($REX['HTDOCS_PATH'] . 'redaxo/include/' . rex_website::generatedDir);
@@ -485,6 +491,9 @@ class rex_website_manager {
 
 			exit;
 		}
+
+		// include custom php file with additional userdefined stuff
+		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/destroy_website.before.inc.php');
 
 		// ***************************************************************************************************
 		// database views
@@ -562,6 +571,9 @@ class rex_website_manager {
 				$log->logInfo('[REMOVE DIR] ' . $mediaPath);
 			}
 		}
+
+		// include custom php file with additional userdefined stuff
+		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/destroy_website.after.inc.php');
 	}
 
 	public function websiteSwitch($switchedWebsiteId, $func) {
