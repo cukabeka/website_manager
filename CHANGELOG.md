@@ -1,9 +1,13 @@
 Website Manager - Changelog
 ===========================
 
-### Version 1.3.1 DEV
+### Version 2.0.0 DEV
 
+* Website Auswahl wird nun zurückgesetzt wenn ausgeloggt
+* Wenn der Benutzer keine Rechte hat für min. eine Website wird nun eine entsprechende Fehlermeldung angezeigt
+* Hilfe verbessert
 * Uninstall Messages verbessert
+* Finetuning
 
 ### Version 1.3.0 - 24. Oktober 2013
 

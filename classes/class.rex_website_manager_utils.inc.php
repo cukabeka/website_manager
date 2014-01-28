@@ -37,7 +37,7 @@ class rex_website_manager_utils {
 
 			$replace = PHP_EOL . '<!-- BEGIN website_manager -->' . PHP_EOL;
 			$replace .= '<link rel="stylesheet" type="text/css" href="../' . $REX['MEDIA_ADDON_DIR'] . '/website_manager/spectrum.css" />' . PHP_EOL;
-			$replace .= '<script type="text/javascript" src="../' . $REX['MEDIA_ADDON_DIR'] . '/website_manager/spectrum.js"></script>' . PHP_EOL;
+			$replace .= '<script type="text/javascript" src="../' . $REX['MEDIA_ADDON_DIR'] . '/website_manager/spectrum.min.js"></script>' . PHP_EOL;
 			$replace .= '<script type="text/javascript">' . $colorInit . 'jQuery("#color-picker").spectrum({ ' . $color . ' showInput: true,  preferredFormat: "hex", clickoutFiresChange: true, showPalette: true, palette: [ ["' . rex_website::defaultColor . '", "#d1513c", "#8eb659", "#dfaa3c", "#cb41d2"] ],  chooseText: "' . $I18N->msg('website_manager_website_colorpicker_choose') . '", cancelText: "' . $I18N->msg('website_manager_website_colorpicker_cancel') . '" });</script>' . PHP_EOL;
 			$replace .= '<!-- END website_manager -->';
 
@@ -349,5 +349,39 @@ class rex_website_manager_utils {
 		} else {
 			$log->logError('[CREATE DIR] ' . $path);
 		}
+	}
+
+	public static function getHtmlFromMDFile($mdFile, $search = array(), $replace = array()) {
+		global $REX;
+
+		$curLocale = strtolower($REX['LANG']);
+
+		if ($curLocale == 'de_de') {
+			$file = $REX['INCLUDE_PATH'] . '/addons/website_manager/' . $mdFile;
+		} else {
+			$file = $REX['INCLUDE_PATH'] . '/addons/website_manager/lang/' . $curLocale . '/' . $mdFile;
+		}
+
+		if (file_exists($file)) {
+			$md = file_get_contents($file);
+			$md = str_replace($search, $replace, $md);
+			$md = self::makeHeadlinePretty($md);
+
+			return Parsedown::instance()->set_breaks_enabled(true)->parse($md);
+		} else {
+			return '[translate:' . $file . ']';
+		}
+	}
+
+	public static function makeHeadlinePretty($md) {
+		return str_replace('Website Manager - ', '', $md);
+	}
+
+	public static function noPermMsg($params) {
+		global $REX, $I18N;
+
+		$params['subject']  = str_replace('<div id="rex-output">', '<div id="rex-output">' . rex_warning($I18N->msg('website_manager_no_perm_msg')), $params['subject']);
+		
+		return $params['subject'];
 	}
 }

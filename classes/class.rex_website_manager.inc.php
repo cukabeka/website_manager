@@ -161,7 +161,7 @@ class rex_website_manager {
 				$this->init($websiteId);
 			} else {
 				// user has no rights
-				header('Location:index.php?rex_logout=1'); // how to display msg to user at this point?
+				header('Location:index.php?rex_logout=1&noperm_msg=1');
 			}
 		}
 	}

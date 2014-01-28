@@ -20,8 +20,7 @@ Features
 Hinweis zu REDAXO-Unterordnerinstallationen
 -------------------------------------------
 
-Es ist technisch nicht möglich so wie hier das AddOn mit einer REDAXO-Unterordnerinstallation zu betreiben: `http://localhost/rex45multi`
-Es wird je eine Domain bzw. Subdomain pro Website benötigt. Arbeitet man mit einem lokalen Webserver so werden virtuelle Hosts (Apache) benötigt.
+Es ist technisch nicht möglich so wie hier das AddOn mit einer REDAXO-Unterordnerinstallation zu betreiben: `http://localhost/rex45multi` Es wird je eine Domain bzw. Subdomain pro Website benötigt. Arbeitet man mit einem lokalen Webserver so werden virtuelle Hosts (Apache) benötigt.
 
 Bitte auch die weiteren Hinweise (s.u.) beachten...
 

@@ -12,7 +12,7 @@ website_manager_prio_mode_off = Aus
 website_manager_prior = Reihenfolge
 website_manager_create_website_security_msg = Website mit ID = 1 darf nicht hinzugefügt werden!
 website_manager_destroy_website_security_msg = Website mit ID = 1 darf nicht gelöscht werden!
-website_manager_settings_msg = Einstellungen lassen sich momentan über diese Datei vornehmen:
+website_manager_settings_msg = Bitte die Einstellungen in der <code>settings.inc.php</code> vornehmen.
 website_manager_install_rex_version = Dieses AddOn benötigt REDAXO Version 4.5.0 oder höher.
 website_manager_install_colorizer = Bitte deinstallieren Sie das Colorizer Plugin des Backend Utilities AddOns.
 website_manager_install_frontend_link = Bitte deinstallieren Sie das Frontend Link Plugin des Backend Utilities AddOns.
@@ -66,7 +66,11 @@ website_manager_setup_step2_msg2 = Sobald Sie dies gemacht haben, erhalten Sie v
 website_manager_setup_step3 = Schritt 3: Websites hinzufügen
 website_manager_setup_step3_msg1 = Das war's schon. Sie können nun neue <a href="index.php?page=website_manager">Websites hinzufügen</a> und haben hoffentlich Freude mit dem AddOn... ;)
 
-website_manager_debug = Debug
-website_manager_help_readme = Bitte lesen Sie unbedingt die <code>README.md</code> im Hauptverzeichnis dieses AddOns.
+website_manager_help_chapter_readme = Readme
+website_manager_help_chapter_changelog = Changelog
+website_manager_help_chapter_license = Lizenz
+website_manager_help_chapter_debug = Debug
+
+website_manager_no_perm_msg = Sie besitzen nicht die erforderlichen Rechte!
 
 

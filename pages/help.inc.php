@@ -1,35 +1,70 @@
 <?php
-$REX['WEBSITE_MANAGER_REXVARS']['SERVER'] = $REX['SERVER'];
-$REX['WEBSITE_MANAGER_REXVARS']['SERVERNAME'] = $REX['SERVERNAME'];
-$REX['WEBSITE_MANAGER_REXVARS']['START_ARTICLE_ID']= $REX['START_ARTICLE_ID'];
-$REX['WEBSITE_MANAGER_REXVARS']['NOTFOUND_ARTICLE_ID'] = $REX['NOTFOUND_ARTICLE_ID'];
-$REX['WEBSITE_MANAGER_REXVARS']['DEFAULT_TEMPLATE_ID'] = $REX['DEFAULT_TEMPLATE_ID'];
-$REX['WEBSITE_MANAGER_REXVARS']['MEDIA_DIR'] = $REX['MEDIA_DIR'];
-$REX['WEBSITE_MANAGER_REXVARS']['MEDIAFOLDER'] = $REX['MEDIAFOLDER'];
-$REX['WEBSITE_MANAGER_REXVARS']['GENERATED_PATH'] = $REX['GENERATED_PATH'];
-$REX['WEBSITE_MANAGER_REXVARS']['TABLE_PREFIX'] = $REX['TABLE_PREFIX'];
+
+$mypage = rex_request('page','string');
+$subpage = rex_request('subpage', 'string');
+$chapter = rex_request('chapter', 'string');
+$func = rex_request('func', 'string');
+
+// include markdwon parser
+if (!class_exists('Parsedown')) {
+	require($REX['INCLUDE_PATH'] . '/addons/website_manager/classes/class.parsedown.inc.php');
+}
+
+// chapters
+$chapterpages = array (
+	'' => array($I18N->msg('website_manager_help_chapter_readme'), 'pages/help/readme.inc.php'),
+	'changelog' => array($I18N->msg('website_manager_help_chapter_changelog'), 'pages/help/changelog.inc.php'),
+	'license' => array($I18N->msg('website_manager_help_chapter_license'), 'pages/help/license.inc.php'),
+	'debug' => array($I18N->msg('website_manager_help_chapter_debug'), 'pages/help/debug.inc.php')
+);
+
+// build chapter navigation
+$chapternav = '';
+
+foreach ($chapterpages as $chapterparam => $chapterprops) {
+	if ($chapterprops[0] != '') {
+		if ($chapter != $chapterparam) {
+			$chapternav .= ' | <a href="?page=' . $mypage . '&amp;subpage=' . $subpage . '&amp;chapter=' . $chapterparam . '">' . $chapterprops[0] . '</a>';
+		} else {
+			$chapternav .= ' | <a class="rex-active" href="?page=' . $mypage . '&amp;subpage=' . $subpage . '&amp;chapter=' . $chapterparam . '">' . $chapterprops[0] . '</a>';
+		}
+	}
+}
+$chapternav = ltrim($chapternav, " | ");
+
+// build chapter output
+$addonroot = $REX['INCLUDE_PATH']. '/addons/'.$mypage.'/';
+$source    = $chapterpages[$chapter][1];
+
+// output
+echo '
+<div class="rex-addon-output" id="subpage-' . $subpage . '">
+  <h2 class="rex-hl2" style="font-size:1em">' . $chapternav . '</h2>
+  <div class="rex-addon-content">
+    <div class= "addon-template">
+    ';
+
+include($addonroot . $source);
+
+echo '
+    </div>
+  </div>
+</div>';
+
 ?>
 
-<div class="rex-addon-output">
-	<h2 class="rex-hl2"><?php echo $I18N->msg('website_manager_help'); ?></h2>
-	<div class="rex-area-content">
-		<p><?php echo $I18N->msg('website_manager_help_readme'); ?></p>
-	</div>
-</div>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	// make external links clickable
+	$("#subpage-help").delegate("a", "click", function(event) {
+		var host = new RegExp("/" + window.location.host + "/");
 
-<div class="rex-addon-output">
-	<h2 class="rex-hl2"><?php echo $I18N->msg('website_manager_debug'); ?></h2>
-	<div class="rex-area-content">
-		<pre class="rex-code"><?php echo rex_website_manager_utils::print_r_pretty($REX['WEBSITE_MANAGER_REXVARS']); ?></pre>
-	</div>
-</div>
+		if (!host.test(this.href)) {
+			event.preventDefault();
+			event.stopPropagation();
 
-<style type="text/css">
-.rex-addon-output pre.rex-code {
-	
-}
-</style>
-
-<?php
-unset($REX['WEBSITE_MANAGER_REXVARS']);
-
+			window.open(this.href, "_blank");
+		}
+	});
+});
+</script>

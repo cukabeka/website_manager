@@ -20,22 +20,16 @@ div#rex-navi-logout {
 
 h1.website-name-frontend-link {
     position: absolute;
-    top: 32px;
+    top: 33px;
     left: 202px;
-    width: 325px;
+    width: 310px;
     overflow: hidden;
     color: #2C8EC0;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: normal;
     line-height: 26px;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-
-h1.website-name-frontend-link.small {
-    font-size: 13px;
-	text-overflow: ellipsis;
-    width: 320px;
 }
 
 /* --------------------------------------------------- */
@@ -65,3 +59,14 @@ h1.website-name-frontend-link.small {
 	padding: 7px 7px 4px 7px;
 }
 
+/* --------------------------------------------------- */
+
+@media print { 
+	h1.website-name-frontend-link {
+		display: none !important;
+	}
+
+	.dd-select {
+		display: none;
+	}
+}

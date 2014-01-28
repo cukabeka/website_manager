@@ -2,7 +2,7 @@
 // init addon
 $REX['ADDON']['name']['website_manager'] = 'Website Manager';
 $REX['ADDON']['page']['website_manager'] = 'website_manager';
-$REX['ADDON']['version']['website_manager'] = '1.3.1 DEV';
+$REX['ADDON']['version']['website_manager'] = '2.0.0 DEV';
 $REX['ADDON']['author']['website_manager'] = "RexDude";
 $REX['ADDON']['supportpage']['website_manager'] = 'forum.redaxo.de';
 $REX['ADDON']['perm']['website_manager'] = 'website_manager[]';
@@ -20,6 +20,17 @@ if ($REX['REDAXO'] && !$REX['SETUP']) {
 	
 	// add lang file
 	$I18N->appendFile($REX['INCLUDE_PATH'] . '/addons/website_manager/lang/');
+
+	// logout stuff
+	if (rex_request('rex_logout') == 1) {
+		// reset website selection
+		rex_set_session('current_website_id', rex_website::firstId);		
+
+		// show user msg when no permissions for any websites
+		if (rex_request('noperm_msg') == 1) {
+			rex_register_extension('OUTPUT_FILTER', 'rex_website_manager_utils::noPermMsg');
+		}
+	}
 
 	// check for existence of website manager object
 	if (isset($REX['WEBSITE_MANAGER'])) {
@@ -50,7 +61,8 @@ if ($REX['REDAXO'] && !$REX['SETUP']) {
 	
 		// add only setup subpage
 		$REX['ADDON']['website_manager']['SUBPAGES'] = array(
-			array('', $I18N->msg('website_manager_setup'))
+			array('', $I18N->msg('website_manager_setup')),
+			array('help', $I18N->msg('website_manager_help'))
 		);
 	}
 
