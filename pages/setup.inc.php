@@ -1,5 +1,8 @@
 <?php
-$codeExample = '// init website manager
+$codeExample1 = "// ----- SET CLANG
+include_once " . '$' . "REX['INCLUDE_PATH'].'/clang.inc.php';";
+
+$codeExample2 = '// init website manager
 require_once($REX["INCLUDE_PATH"] . "/addons/website_manager/generated/init.inc.php");';
 ?>
 
@@ -13,8 +16,10 @@ require_once($REX["INCLUDE_PATH"] . "/addons/website_manager/generated/init.inc.
 <div class="rex-addon-output">
 	<h2 class="rex-hl2"><?php echo $I18N->msg('website_manager_setup_step2'); ?></h2>
 	<div class="rex-area-content">
-		<p class="info-msg"><?php echo $I18N->msg('website_manager_setup_step2_msg1'); ?></p>
-		<?php rex_highlight_string($codeExample); ?>
+		<p class="info-msg"><?php echo $I18N->msg('website_manager_setup_step2_msg1a'); ?></p>
+		<?php rex_highlight_string($codeExample1); ?>
+		<p class="info-msg top-margin"><?php echo $I18N->msg('website_manager_setup_step2_msg1b'); ?></p>
+		<?php rex_highlight_string($codeExample2); ?>
 		<p class="info-msg no-bottom-margin"><?php echo $I18N->msg('website_manager_setup_step2_msg2'); ?></p>
 	</div>
 </div>
@@ -31,9 +36,13 @@ require_once($REX["INCLUDE_PATH"] . "/addons/website_manager/generated/init.inc.
 	margin-bottom: 10px;
 }
 
+#rex-page-website-manager .top-margin {
+	margin-top: 15px;
+}
+
 #rex-page-website-manager .no-bottom-margin {
 	margin-bottom: 0px;
-	margin-top: 7px;
+	margin-top: 10px;
 }
 
 #rex-page-website-manager .rex-code {

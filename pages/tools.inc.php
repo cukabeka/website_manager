@@ -80,8 +80,8 @@ p.rex-form-checkbox input {
 }
 
 #generate-all-button {
-	float: right;
-	margin-top: 5px;
+	float: left;
+	margin-top: 2px;
 	margin-bottom: 10px;
 	margin-right: 5px;
 }

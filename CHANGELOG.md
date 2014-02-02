@@ -3,7 +3,7 @@ Website Manager - Changelog
 
 ### Version 2.0.0 DEV
 
-* Mechanismus um Custom Code vor und nach Website-Erstellung/Zerstörung einzuschleusen hinzugefügt (siehe Custom-Ordner und Einstellungen-Seite). Nützlich wenn man zusätzliche VIEWS etc. für AddOns anlegen will.
+* Mechanismus hinzugefügt um Custom Code vor und nach Website-Erstellung/Zerstörung einzuschleusen (siehe Custom-Ordner und Einstellungen-Seite). Nützlich wenn man zusätzliche VIEWS etc. für AddOns anlegen will.
 * Bei eingeschaltetem One Page Mode von SEO42 wird nun der Anzeigen-Link korrekt gesetzt
 * Plugin-Einbindung nicht mehr hartcodiert. Abschnitt "Entwicklung von Plugins für den Website Manager" zur Readme hinzugefügt.
 * Uninstall wird nur noch erlaubt wenn zuvor von Hand alle angelegten Websites wieder gelöscht wurden
