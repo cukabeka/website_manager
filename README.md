@@ -31,7 +31,7 @@ Sicherheit
 Under Construction
 ------------------
 
-* Gleiche Meta-Infos für alle Websites ist noch nicht vollständig implementiert. Hier hilft aktuell nur die Meta Infos von Hand zu duplizieren pro Website. Neu: Man passt die Stelle im Code des MetaInfo AddOns für das eigene Projekt an: https://github.com/redaxo/redaxo4/blob/master/redaxo/include/addons/metainfo/_install.sql#L45-L53 Bei jeder Reinstallation werden so schonmal immer die gleichen MetaInfos angelegt.
+* Gleiche Meta-Infos für alle Websites ist noch nicht vollständig implementiert. Hier hilft aktuell nur die Meta Infos von Hand zu duplizieren pro Website. Neu: Man passt die Stelle im Code des MetaInfo AddOns für das eigene Projekt an: https://github.com/redaxo/redaxo4/blob/4.5.1/redaxo/include/addons/metainfo/_install.sql#L45-L53 Bei jeder Reinstallation werden so schonmal immer die gleichen MetaInfos angelegt.
 * Gleiche Clangs sind noch nicht ausreichend getestet und damit unsupported.
 * Ctypes sind aktuell noch nicht berücksichtigt. D.h. es kann schon Out of the Box gehen oder eben nicht ;)
 
@@ -71,16 +71,19 @@ $REX['WEBSITE_MANAGER']->masterWebsiteSwitch(function() {
 });
 ```
 
-Kompatible AddOns
------------------
+AddOns mit gleichem Datenbestand
+--------------------------------
 
-* SEO42 ab v2.6.0: https://github.com/RexDude/seo42
-* Slice Status ab v2.0.0: https://github.com/RexDude/slice_status
-* String Table ab v1.3.1: https://github.com/RexDude/string_table
-* Tracking Code ab v1.0.0: https://github.com/RexDude/tracking_code
-* ClearCache ab v1.0.0 https://github.com/RexDude/clearcache
+* AddOns die für alle Websites die gleichen Daten liefern sollen werden normal für die Master Website installiert.
+* In der `custom/create_website.before.inc.php` bzw. `custom/create_website.before.inc.php` Datei muss ein VIEW auf die enstprechende Master-Tabelle angelegt werden. Siehe z.B. Image Manager AddOn: https://github.com/RexDude/website_manager/blob/v1.3.0/classes/class.rex_website_manager.inc.php#L382-L384
+* Evtl. ist es nötig den Modulcode (wenn vorhanden) mit der PHP-Methode `masterWebsiteSwitch()` zu umschließen. Siehe API weiter oben.
 
-Stand: 21. Mai 2013
+AddOns mit unterschiedlichem Datenbestand
+-----------------------------------------
+
+* Addons müssen die aktuellen Rex-Vars unterstützen (s.u.).
+* Addons werden dann in die `settings.inc.php` eingetragen.
+* Bei jedem Website hinzufügen, werden diese dann automatisch reinstalliert und können so für jede Website unterschiedliche Daten speichern.
 
 AddOns fitmachen für den Website Manager
 ----------------------------------------
@@ -106,6 +109,15 @@ if (isset($REX['MEDIA_DIR'])) {
 	return 'files';
 }
 ```
+
+Kompatible AddOns
+-----------------
+
+* SEO42 ab v2.6.0: https://github.com/RexDude/seo42
+* Slice Status ab v2.0.0: https://github.com/RexDude/slice_status
+* String Table ab v1.3.1: https://github.com/RexDude/string_table
+* Tracking Code ab v1.0.0: https://github.com/RexDude/tracking_code
+* ClearCache ab v1.0.0 https://github.com/RexDude/clearcache
 
 Entwicklung von Plugins für den Website Manager
 -----------------------------------------------
