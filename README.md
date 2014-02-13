@@ -76,14 +76,14 @@ AddOns mit gleichem Datenbestand
 
 * AddOns die für alle Websites die gleichen Daten liefern sollen werden normal für die Master Website installiert.
 * In der `custom/create_website.before.inc.php` bzw. `custom/create_website.before.inc.php` Datei muss ein VIEW auf die enstprechende Master-Tabelle angelegt werden. Siehe z.B. Image Manager AddOn: https://github.com/RexDude/website_manager/blob/v1.3.0/classes/class.rex_website_manager.inc.php#L382-L384
-* Evtl. ist es nötig den Modulcode (wenn vorhanden) mit der PHP-Methode `masterWebsiteSwitch()` zu umschließen. Siehe API weiter oben.
+* Bei jedem Website hinzufügen werden dann automatisch die VIEWS angelegt so dass jedes Addon dann an die gleichen Daten kommt.
 
 AddOns mit unterschiedlichem Datenbestand
 -----------------------------------------
 
 * Addons müssen die aktuellen Rex-Vars unterstützen (s.u.).
 * Addons werden dann in die `settings.inc.php` eingetragen.
-* Bei jedem Website hinzufügen, werden diese dann automatisch reinstalliert und können so für jede Website unterschiedliche Daten speichern.
+* Bei jedem Website hinzufügen werden diese dann automatisch reinstalliert und können so für jede Website unterschiedliche Daten speichern.
 
 AddOns fitmachen für den Website Manager
 ----------------------------------------
