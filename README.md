@@ -118,6 +118,7 @@ Kompatible AddOns
 * String Table ab v1.3.1: https://github.com/RexDude/string_table
 * Tracking Code ab v1.0.0: https://github.com/RexDude/tracking_code
 * ClearCache ab v1.0.0 https://github.com/RexDude/clearcache
+* Rex Multiupload ab v3.2.0 https://github.com/nightstomp/rex_multiupload
 
 Entwicklung von Plugins für den Website Manager
 -----------------------------------------------
