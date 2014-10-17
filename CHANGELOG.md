@@ -1,6 +1,10 @@
 Website Manager - Changelog
 ===========================
 
+### Version 2.1.0 DEV
+
+* "Website nicht gefunden" Meldung jetzt inkl. betreffender Domain
+
 ### Version 2.0.0 - 02. Februar 2014
 
 * Mechanismus hinzugefügt um Custom Code vor und nach Website-Erstellung/Zerstörung einzuschleusen (siehe Custom-Ordner und Einstellungen-Seite). Nützlich wenn man zusätzliche VIEWS etc. für AddOns anlegen will.

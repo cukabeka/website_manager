@@ -90,10 +90,8 @@ class rex_website_manager {
 
 		// website not found :(
 		header('HTTP/1.0 404 Not Found');
-		echo "Website not found!";
+		echo 'Website "' . $_SERVER['SERVER_NAME'] . '" not found!';
 		exit;
-
-		//return rex_website::firstId;
 	}
 
 	protected function getWebsiteIdForBackend() {
