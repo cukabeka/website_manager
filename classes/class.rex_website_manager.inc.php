@@ -307,6 +307,11 @@ class rex_website_manager {
 		// include custom php file with additional userdefined stuff
 		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/create_website.before.inc.php');
 
+		// seo42 support
+		if (OOAddOn::isAvailable('seo42') && !in_array('seo42', $REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons'])) {
+			$REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons'][] = 'seo42';
+		}
+
 		// ***************************************************************************************************
 		// database tables
 		// ***************************************************************************************************

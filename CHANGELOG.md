@@ -3,6 +3,7 @@ Website Manager - Changelog
 
 ### Version 2.1.0 DEV
 
+* SEO42 wird wenn installiert automatisch supported, thx@Hirbod
 * "Website nicht gefunden" Meldung jetzt inkl. betreffender Domain
 
 ### Version 2.0.0 - 02. Februar 2014

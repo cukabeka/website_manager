@@ -11,7 +11,7 @@ Features
 * Drag und Drop Sortierung der Websites
 * Der Style des Backend wird je nach ausgewählter Website angepasst (inkl. autom. generierter farbiger Favicons)
 * Man kann auswählen ob man gleiche oder verschiedene Templates, Module, Medien, Clangs, Meta-Infos und Image-Types für die Websites haben will
-* Ein zusätzlicher URL-Rewriter kann frei gewählt und eingesetzt werden (sofern dieser die neuen Rex-Vars aus R4.5 unterstützt)
+* Ein zusätzlicher URL-Rewriter kann frei gewählt und eingesetzt werden. SEO42 wird automatisch unterstützt wenn verfügbar.
 * Man kann von Websites ganze Artikel und Blöcke (Sices) ausgeben auch wenn man sich in einer ganz anderen Website befindet (siehe API)
 * Tools wie "Cache global löschen"
 * Rechtemanagement
