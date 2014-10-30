@@ -312,6 +312,11 @@ class rex_website_manager {
 			$REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons'][] = 'seo42';
 		}
 
+		// slice_status support
+		if (OOAddOn::isAvailable('slice_status') && !in_array('slice_status', $REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons'])) {
+			$REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons'][] = 'slice_status';
+		}
+
 		// ***************************************************************************************************
 		// database tables
 		// ***************************************************************************************************

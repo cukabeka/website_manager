@@ -1,9 +1,10 @@
 Website Manager - Changelog
 ===========================
 
-### Version 2.1.0 DEV
+### Version 3.0.0 DEV
 
 * SEO42 wird automatisch unterstützt wenn verfügbar, thx@Hirbod
+* Slice Status wird automatisch unterstützt wenn verfügbar
 * "Website nicht gefunden" Meldung jetzt inkl. betreffender Domain
 
 ### Version 2.0.0 - 02. Februar 2014
