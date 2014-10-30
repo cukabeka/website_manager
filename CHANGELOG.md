@@ -6,7 +6,6 @@ Website Manager - Changelog
 * SEO42 4.0+ Kompatibilität verbessert
 * `allow_www_non_www_domains` Option hinzugefügt. Damit kann man steuern ob WWW/Nicht-WWW Domains durchgelassen werden. Wichtig für die No Double Content Redirects in SEO42 4.0+
 * SEO42 wird automatisch unterstützt wenn verfügbar, thx@Hirbod
-* Slice Status wird automatisch unterstützt wenn verfügbar
 * "Website nicht gefunden" Meldung jetzt inkl. betreffender Domain
 
 ### Version 2.0.0 - 02. Februar 2014

@@ -1,10 +1,10 @@
 <?php
 
 // this addons will be reinstalled if new website is added
-$REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons'] = array(); // e.g.: array('slice_status', 'string_table', 'tracking_code', 'clearcache');
+$REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons'] = array('seo42', 'slice_status', 'string_table', 'tracking_code');
 
 // this plugins will be reinstalled if new website is added
-$REX['WEBSITE_MANAGER_SETTINGS']['reinstall_plugins'] = array(); // e.g.: array(array('be_utilities', 'hide_startarticle'));
+$REX['WEBSITE_MANAGER_SETTINGS']['reinstall_plugins'] = array(array('be_utilities', 'hide_startarticle')); // e.g.: array(array('be_utilities', 'hide_startarticle'));
 
 // if true all websites will have one mediapool
 $REX['WEBSITE_MANAGER_SETTINGS']['identical_media'] = false;
