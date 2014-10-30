@@ -42,3 +42,5 @@ $REX['WEBSITE_MANAGER_SETTINGS']['show_color_bar'] = true;
 // if true favicon will be auto colorized too when adding new website
 $REX['WEBSITE_MANAGER_SETTINGS']['colorize_favicon'] = true;
 
+$REX['WEBSITE_MANAGER_SETTINGS']['allow_www_non_www_domains'] = true;
+

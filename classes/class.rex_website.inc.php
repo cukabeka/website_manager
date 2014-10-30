@@ -13,6 +13,9 @@ class rex_website {
 	protected $theme; 
 	protected $permission;
 
+	protected $wwwDomain;
+	protected $nonWWWDomain;
+
 	const firstId = 1;
 	const mediaDir = 'files';
 	const generatedDir = 'generated';
@@ -35,6 +38,14 @@ class rex_website {
 		$this->themeId = $themeId;
 		$this->theme = new rex_website_theme($themeId);
 		$this->permission = self::permissionPrefix . '[' . $id . ']';
+
+		if (strpos($this->domain, "www.") === false) {
+			$this->wwwDomain = 'www.' . $this->domain;
+			$this->nonWWWDomain = $this->domain;
+		} else {
+			$this->wwwDomain = $this->domain;
+			$this->nonWWWDomain = str_replace('www.', '', $this->domain);
+		}
 	}
 
 	public function getId() {
@@ -43,6 +54,14 @@ class rex_website {
 
 	public function getDomain() {
 		return $this->domain;
+	}
+
+	public function getWWWDomain() {
+		return $this->wwwDomain;
+	}
+
+	public function getNonWWWDomain() {
+		return $this->nonWWWDomain;
 	}
 
 	public function getTitle() {

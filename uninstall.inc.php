@@ -21,6 +21,8 @@ if (!OOAddon::isActivated('website_manager')) {
 
 	$sql->setQuery('DROP TABLE IF EXISTS `rex_website`');
 
+	rex_generateAll();
+
 	$REX['ADDON']['install']['website_manager'] = 0;
 }
 

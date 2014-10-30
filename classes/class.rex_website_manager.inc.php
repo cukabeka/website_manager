@@ -81,10 +81,22 @@ class rex_website_manager {
 	}
 
 	protected function getWebsiteIdForFrontend() {
+		global $REX;
+
 		foreach ($this->websites as $website) {
-			if ($website->getDomain() == $_SERVER['SERVER_NAME']) {
-				// website found :)
-				return $website->getId();
+			if ($REX['WEBSITE_MANAGER_SETTINGS']['allow_www_non_www_domains']) {
+				// allow www and non www
+				
+				if ($website->getWWWDomain() == $_SERVER['SERVER_NAME'] || $website->getNonWWWDomain() == $_SERVER['SERVER_NAME']) {
+					// website found :)
+					return $website->getId();
+				}
+			} else {
+				// allow only exact domain
+				if ($website->getDomain() == $_SERVER['SERVER_NAME']) {
+					// website found :)
+					return $website->getId();
+				}
 			}
 		}
 
