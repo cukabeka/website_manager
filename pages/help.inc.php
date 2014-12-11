@@ -14,9 +14,10 @@ if (!class_exists('Parsedown')) {
 $chapterpages = array (
 	'' => array($I18N->msg('website_manager_help_chapter_readme'), 'pages/help/readme.inc.php'),
 	'changelog' => array($I18N->msg('website_manager_help_chapter_changelog'), 'pages/help/changelog.inc.php'),
-	'license' => array($I18N->msg('website_manager_help_chapter_license'), 'pages/help/license.inc.php'),
+	'update' => array($I18N->msg('website_manager_help_chapter_update'), 'pages/help/update.inc.php'),
+	'log' => array($I18N->msg('website_manager_help_chapter_log'), 'pages/help/log.inc.php'),
 	'debug' => array($I18N->msg('website_manager_help_chapter_debug'), 'pages/help/debug.inc.php'),
-	'log' => array($I18N->msg('website_manager_help_chapter_log'), 'pages/help/log.inc.php')
+	'license' => array($I18N->msg('website_manager_help_chapter_license'), 'pages/help/license.inc.php'),
 );
 
 // build chapter navigation

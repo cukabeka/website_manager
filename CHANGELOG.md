@@ -3,6 +3,8 @@ Website Manager - Changelog
 
 ### Version 3.0.0 DEV
 
+* Update: Bitte die Hinweise in der `UPDATE.md` beachten!
+* Update-Hinweise (auch für alle zukünftigen Versionen) wurden in die Datei `UPDATE.md` ausgelagert und sind auch über die Hilfe im AddOn einsehbar.
 * Markdown Addon 1.2.0 Kompatibilität verbessert
 * SEO42 4.0+ Kompatibilität verbessert
 * `allow_www_non_www_domains` Option hinzugefügt. Damit kann man steuern ob WWW/Nicht-WWW Domains durchgelassen werden. Wichtig für die No Double Content Redirects in SEO42 4.0+

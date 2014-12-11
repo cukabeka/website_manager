@@ -70,6 +70,7 @@ website_manager_setup_step3_msg1 = Das war's schon. Sie können nun neue <a href
 
 website_manager_help_chapter_readme = Readme
 website_manager_help_chapter_changelog = Changelog
+website_manager_help_chapter_update = Update
 website_manager_help_chapter_license = Lizenz
 website_manager_help_chapter_debug = Debug
 website_manager_help_chapter_log = Log

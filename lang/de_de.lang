@@ -62,7 +62,7 @@ website_manager_website_delete_trunedoff = Das Löschen von Websites wurde aus Si
 website_manager_setup_step1 = Schritt 1: Vorbereitungen
 website_manager_setup_step1_msg1 = Bitte lesen Sie zuerst die <a href="index.php?page=website_manager&subpage=help">Readme</a> um sich mit den Besonderheiten dieses AddOns vertraut zu machen.<br />Installieren Sie dann alle AddOns die Sie für die einzelnen Websites einsetzen wollen.<br />Passen Sie dann alle Einstellungen des Website Manager AddOns in der <code>settings.inc.php</code> entsprechend Ihres Projekts an.
 website_manager_setup_step2 = Schritt 2:  Website Manager Initialisierung
-website_manager_setup_step2_msg1a = In der <code>master.inc.php</code> von REDAXO relativ weit unten bitte direkt nach diesen Zeilen:
+website_manager_setup_step2_msg1a = In der <code>master.inc.php</code> von REDAXO relativ weit unten bitte exakt (!) nach diesen Zeilen:
 website_manager_setup_step2_msg1b = diese Zeilen hier einfügen:
 website_manager_setup_step2_msg2 = Sobald Sie dies gemacht haben, erhalten Sie vollen Zugriff auf das Website Manager AddOn.
 website_manager_setup_step3 = Schritt 3: Websites hinzufügen
@@ -70,6 +70,7 @@ website_manager_setup_step3_msg1 = Das war's schon. Sie können nun neue <a href=
 
 website_manager_help_chapter_readme = Readme
 website_manager_help_chapter_changelog = Changelog
+website_manager_help_chapter_update = Update
 website_manager_help_chapter_license = Lizenz
 website_manager_help_chapter_debug = Debug
 website_manager_help_chapter_log = Log

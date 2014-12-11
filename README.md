@@ -151,6 +151,11 @@ Changelog
 
 siehe [CHANGELOG.md](CHANGELOG.md)
 
+Updatehinweise
+--------------
+
+siehe [UPDATE.md](UPDATE.md)
+
 Lizenz
 ------
 
