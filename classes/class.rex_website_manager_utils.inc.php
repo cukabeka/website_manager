@@ -361,7 +361,15 @@ class rex_website_manager_utils {
 			$md = str_replace($search, $replace, $md);
 			$md = self::makeHeadlinePretty($md);
 
-			return Parsedown::instance()->set_breaks_enabled(true)->parse($md);
+			if (method_exists('Parsedown', 'set_breaks_enabled')) {
+				$out = Parsedown::instance()->set_breaks_enabled(true)->parse($md);
+			} elseif (method_exists('Parsedown', 'set_breaks_enabled')) {
+				$out = Parsedown::instance()->setBreaksEnabled(true)->parse($md);
+			} else {
+				$out = Parsedown::instance()->parse($md);
+			}
+
+			return $out;
 		} else {
 			return '[translate:' . $file . ']';
 		}
