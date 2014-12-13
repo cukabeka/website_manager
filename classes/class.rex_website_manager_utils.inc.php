@@ -202,8 +202,8 @@ class rex_website_manager_utils {
 		global $REX;
 
 		$insert = '<!-- BEGIN website_manager -->' . PHP_EOL;
-		$insert .= '<link rel="stylesheet" type="text/css" href="../' . $REX['MEDIA_ADDON_DIR'] . '/seo42/jquery.tag-editor.css" />' . PHP_EOL;
-		$insert .= '<script type="text/javascript" src="../' . $REX['MEDIA_ADDON_DIR'] . '/seo42/jquery.tag-editor.min.js"></script>' . PHP_EOL;
+		$insert .= '<link rel="stylesheet" type="text/css" href="../' . $REX['MEDIA_ADDON_DIR'] . '/website_manager/jquery.tag-editor.css" />' . PHP_EOL;
+		$insert .= '<script type="text/javascript" src="../' . $REX['MEDIA_ADDON_DIR'] . '/website_manager/jquery.tag-editor.min.js"></script>' . PHP_EOL;
 		$insert .= '<!-- END website_manager -->';
 	
 		return $params['subject'] . PHP_EOL . $insert;

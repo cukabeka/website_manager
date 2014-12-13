@@ -63,7 +63,7 @@ website_manager_website_delete_trunedoff = Das Löschen von Websites wurde aus S
 website_manager_setup_step1 = Schritt 1: Vorbereitungen
 website_manager_setup_step1_msg1a = Bitte lesen Sie zuerst die <a href="index.php?page=website_manager&subpage=help">Readme</a> um sich mit den Besonderheiten dieses AddOns vertraut zu machen.
 website_manager_setup_step1_msg1b = Installieren Sie dann alle AddOns die Sie für die einzelnen Websites einsetzen wollen.
-website_manager_setup_step1_msg1c = Passen Sie dann alle <a href="index.php?page=website_manager&subpage=settings">Einstellungen</a> des Website Manager AddOns entsprechend Ihres Projekts an. Achtung: Manche Einstellungen können nachträglich nicht mehr geändert werden, sobald Sie mehr als eine Website hinzugefügt haben.
+website_manager_setup_step1_msg1c = Passen Sie alle <a href="index.php?page=website_manager&subpage=settings">Einstellungen</a> des Website Manager AddOns entsprechend Ihres Projekts an. Achtung: Manche Einstellungen können nachträglich nicht mehr geändert werden, sobald Sie mehr als eine Website hinzugefügt haben.
 website_manager_setup_step1_msg1d = Es ist möglich weiteren Code auszuführen (z.B. MySQL Views anlegen) wenn Websites hinzugefügt oder gelöscht werden. Passen Sie dazu die Dateien unter <code>/include/data/addons/website_manager/custom/</code> Ihren Bedürfnissen an.
 website_manager_setup_step2 = Schritt 2:  Website Manager Initialisierung
 website_manager_setup_step2_msg1a = In der <code>master.inc.php</code> von REDAXO relativ weit unten bitte exakt (!) nach diesen Zeilen:

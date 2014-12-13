@@ -191,7 +191,7 @@ class rex_website {
 		// restore rex vars for current website
 		$REX['WEBSITE_MANAGER']->getCurrentWebsite()->switchRexVars();
 
-		// temporary workaround for rexseo/seo42 master website empty pathlist problem
+		// temporary workaround for seo42 master website empty pathlist problem
 		rex_generateAll();
 	}
 
