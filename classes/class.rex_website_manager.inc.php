@@ -63,9 +63,10 @@ class rex_website_manager {
 		$this->includeClangFile();
 		$this->addPermissions();
 
+		// for theme plugin only
 		$theme = $this->getCurrentWebsite()->getTheme();
 
-		if ($theme != null) {
+		if (is_object($theme)) {
 			$theme->init();
 		}
 	}
@@ -470,12 +471,25 @@ class rex_website_manager {
 
 		// reinstall plugins
 		for ($curPluginCount = 0; $curPluginCount < count($reinstallPlugins); $curPluginCount++) {
-			if (OOPlugin::isInstalled($reinstallPlugins[$curPluginCount][0], $reinstallPlugins[$curPluginCount][1])) {
-				require_once($REX['INCLUDE_PATH'] . '/addons/' . $reinstallPlugins[$curPluginCount][0] . '/plugins/' . $reinstallPlugins[$curPluginCount][1] . '/install.inc.php');
+			$curAddon = '';
+			$curPlugin = '';
 
-				$log->logInfo('[REINSTALL PLUGIN] ' . $reinstallPlugins[$curPluginCount][1]);
+			$reinstallPluginsArray = explode(WEBSITE_MANAGER_PLUGIN_DELIMITER, $reinstallPlugins[$curPluginCount]);
 
-				$sqlFile = $REX['INCLUDE_PATH'] . '/addons/' . $reinstallPlugins[$curPluginCount][0] . '/plugins/' . $reinstallPlugins[$curPluginCount][1] . '/install.sql';
+			if (isset($reinstallPluginsArray[0])) {
+				$curAddon = $reinstallPluginsArray[0];
+			}
+
+			if (isset($reinstallPluginsArray[1])) {
+				$curPlugin = $reinstallPluginsArray[1];
+			}
+
+			if ($curAddon != '' && $curPlugin != '' && OOPlugin::isInstalled($curAddon, $curPlugin)) {
+				require_once($REX['INCLUDE_PATH'] . '/addons/' . $curAddon . '/plugins/' . $curPlugin . '/install.inc.php');
+
+				$log->logInfo('[REINSTALL PLUGIN] ' . $curPlugin);
+
+				$sqlFile = $REX['INCLUDE_PATH'] . '/addons/' . $curAddon . '/plugins/' . $curPlugin . '/install.sql';
 	
 				if (file_exists($sqlFile)) {
 					$returnValue = rex_install_dump($sqlFile);
@@ -487,7 +501,7 @@ class rex_website_manager {
 					}
 				}
 			} else {
-				$log->logError('[REINSTALL PLUGIN] ' . $reinstallPlugins[$curPluginCount][1]);
+				$log->logError('[REINSTALL PLUGIN] ' . $reinstallPlugins[$curPluginCount]);
 			}
 		}
 

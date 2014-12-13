@@ -198,6 +198,17 @@ class rex_website_manager_utils {
 		return $params['subject'] . PHP_EOL . $insert;
 	}
 
+	public static function appendToPageHeaderOnlyAddonPages($params) {
+		global $REX;
+
+		$insert = '<!-- BEGIN website_manager -->' . PHP_EOL;
+		$insert .= '<link rel="stylesheet" type="text/css" href="../' . $REX['MEDIA_ADDON_DIR'] . '/seo42/jquery.tag-editor.css" />' . PHP_EOL;
+		$insert .= '<script type="text/javascript" src="../' . $REX['MEDIA_ADDON_DIR'] . '/seo42/jquery.tag-editor.min.js"></script>' . PHP_EOL;
+		$insert .= '<!-- END website_manager -->';
+	
+		return $params['subject'] . PHP_EOL . $insert;
+	}
+
 	public static function sanitizeUrl($url) {
 		return preg_replace('@^https?://|/.*|[^\w.-]@', '', $url);
 	}
@@ -430,7 +441,6 @@ class rex_website_manager_utils {
 		}
 	}
 
-	// currently unused
 	public static function replaceSettings($settings) {
 		global $REX;
 
@@ -482,6 +492,7 @@ class rex_website_manager_utils {
 		return self::checkDir($pathInfo['dirname']);
 	}
 
+
 	public static function convertVarType($originalValue, $newValue) {
 		$arrayDelimiter = ',';
 
@@ -506,5 +517,9 @@ class rex_website_manager_utils {
 				return $newValue;
 				
 		}
+	}
+
+	public static function implodeArray($array) {
+		return implode(WEBSITE_MANAGER_ARRAY_DELIMITER, $array); 
 	}
 }

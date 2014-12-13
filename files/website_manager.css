@@ -63,6 +63,26 @@ div#rex-navi-logout ul {
 	padding: 7px 7px 4px 7px;
 }
 
+/* --------------------------------------------------------------------- */
+
+.tags {
+	display: none;
+}
+
+.tag-editor {
+	width: 456px !important;
+	border: 1px solid #999 !important;
+}
+
+.tag-editor input {
+	-moz-transition: none !important;
+	border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 0 !important;
+}
+
 /* --------------------------------------------------- */
 
 @media print { 
@@ -74,3 +94,5 @@ div#rex-navi-logout ul {
 		display: none;
 	}
 }
+
+

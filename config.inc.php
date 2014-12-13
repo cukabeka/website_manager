@@ -10,6 +10,10 @@ $REX['ADDON']['perm']['website_manager'] = 'website_manager[]';
 // permissions
 $REX['PERM'][] = 'website_manager[]';
 
+// consts
+define('WEBSITE_MANAGER_ARRAY_DELIMITER', ',');
+define('WEBSITE_MANAGER_PLUGIN_DELIMITER', ':');
+
 if ($REX['REDAXO']) {
 	// add lang file
 	$I18N->appendFile($REX['INCLUDE_PATH'] . '/addons/website_manager/lang/');
@@ -83,6 +87,11 @@ if ($REX['REDAXO'] && !$REX['SETUP']) {
 
 		// add css/js to page header
 		rex_register_extension('PAGE_HEADER', 'rex_website_manager_utils::appendToPageHeader');
+
+		// only website manager addons pages
+		if (rex_request('page') == 'website_manager') {
+			rex_register_extension('PAGE_HEADER', 'rex_website_manager_utils::appendToPageHeaderOnlyAddonPages');
+		}
 
 		if (rex_request('install') != '1') { // this shoudn't go off when addon gets installed
 			// add website select and other stuff
