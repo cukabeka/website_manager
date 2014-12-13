@@ -77,6 +77,7 @@ if ($REX['REDAXO'] && !$REX['SETUP']) {
 		// add only setup subpage
 		$REX['ADDON']['website_manager']['SUBPAGES'] = array(
 			array('', $I18N->msg('website_manager_setup')),
+			array('settings', $I18N->msg('website_manager_settings')),
 			array('help', $I18N->msg('website_manager_help'))
 		);
 	}

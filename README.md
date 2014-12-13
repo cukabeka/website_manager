@@ -15,12 +15,11 @@ Features
 * Man kann von Websites ganze Artikel und Blöcke (Sices) ausgeben auch wenn man sich in einer ganz anderen Website befindet (siehe API)
 * Tools wie "Cache global löschen"
 * Rechtemanagement
-* Theme-Plugin (inkl. SCSS Unterstützung) um pro Website bestimmte Werte (z.B. Farbwerte, Logos) abspeichern und dann z.B. eine CSS darauss generieren zu können.
 
 Verfügbare Plugins
 ------------------
 
-* [themes](https://github.com/RexDude/themes) - Theme-Plugin für den Website Manager
+* [themes](https://github.com/RexDude/themes) - Theme-Plugin (inkl. SCSS Unterstützung) um pro Website bestimmte Werte (z.B. Farbwerte, Logos) abspeichern und dann z.B. eine CSS darauss generieren zu können.
 
 Hinweis zu REDAXO-Unterordnerinstallationen
 -------------------------------------------
@@ -30,20 +29,20 @@ Es ist technisch nicht möglich so wie hier das AddOn mit einer REDAXO-Unterordn
 Sicherheit
 ----------
 
-* Backup! Wenn man das AddOn live einsetzt, wird dringend angeraten eine automatische Backuplösung für die gesamte Datenbank einzurichten, z.B. über das CronJob AddOn und den MySQLDumper. Man muss drauf achten, dass die angelegten MySQL Views auch mitgesichert und wieder zurückgeschrieben werden.
+* Backup! Wenn man das AddOn live einsetzt, wird dringend angeraten eine automatische Backuplösung für die gesamte Datenbank einzurichten, z.B. über das CronJob AddOn und den MySQLDumper. Man muss drauf achten, dass die angelegten MySQL Views auch mitgesichert und wieder zurückgeschrieben werden können.
 * Man sollte sich überlegen, ob man nicht grundsätzlich das Löschen von Websites für alle User unterbindet (empfohlen). Dafür ist die Option `allow_website_delete` da.
 
 Under Construction
 ------------------
 
-* Gleiche Meta-Infos für alle Websites ist noch nicht vollständig implementiert. Hier hilft aktuell nur die Meta Infos von Hand zu duplizieren pro Website. Neu: Man passt die Stelle im Code des MetaInfo AddOns für das eigene Projekt an: https://github.com/redaxo/redaxo4/blob/4.5.1/redaxo/include/addons/metainfo/_install.sql#L45-L53 Bei jeder Reinstallation werden so schonmal immer die gleichen MetaInfos angelegt.
+* Gleiche Meta-Infos für alle Websites ist noch nicht vollständig implementiert. Hier hilft aktuell nur die Meta Infos von Hand zu duplizieren pro Website. Neu: Man passt die Stelle im Code des MetaInfo AddOns für das eigene Projekt an: https://github.com/redaxo/redaxo4/blob/4.5.1/redaxo/include/addons/metainfo/_install.sql#L45-L53 Bei jeder Reinstallation werden so schonmal immer die gleichen MetaInfos angelegt. Eine neue weitere Möglichkeit wird unter "AddOns mit gleichem Datenbestand" erklärt.
 * Gleiche Clangs sind noch nicht ausreichend getestet und damit unsupported.
 * Ctypes sind aktuell noch nicht berücksichtigt. D.h. es kann schon Out of the Box gehen oder eben nicht ;)
 
 Benötigter Patch für REDAXO 4.5.0
 ---------------------------------
 
-* Damit der Image Manager auch sauber im Backend funktioniert (nur wenn `identical_media` auf `false`) müssen die Dateien `/redaxo/include/pages/mediapool.media.inc.php` und `/redaxo/media/standard.js` gegen diese hier ausgetauscht werden:
+Damit der Image Manager auch sauber im Backend funktioniert (nur wenn `identical_media` auf `false`) müssen die Dateien `/redaxo/include/pages/mediapool.media.inc.php` und `/redaxo/media/standard.js` gegen diese hier ausgetauscht werden:
 
 https://raw.github.com/redaxo/redaxo4/master/redaxo/include/pages/mediapool.media.inc.php
 https://raw.github.com/redaxo/redaxo4/master/redaxo/media/standard.js
@@ -80,15 +79,15 @@ AddOns mit gleichem Datenbestand
 --------------------------------
 
 * AddOns die für alle Websites die gleichen Daten liefern sollen werden normal für die Master Website installiert.
-* In der `custom/create_website.before.inc.php` bzw. `custom/create_website.before.inc.php` Datei muss ein VIEW auf die enstprechende Master-Tabelle angelegt werden. Siehe z.B. Image Manager AddOn: https://github.com/RexDude/website_manager/blob/v1.3.0/classes/class.rex_website_manager.inc.php#L382-L384
+* In der `create_website.before.inc.php` bzw. `create_website.after.inc.php` Datei (zu finden unter `/include/data/addons/website_manager/custom/`) muss ein VIEW auf die enstprechende Master-Tabelle angelegt werden. Siehe z.B. Image Manager AddOn: https://github.com/RexDude/website_manager/blob/v1.3.0/classes/class.rex_website_manager.inc.php#L382-L384
 * Bei jedem Website hinzufügen werden dann automatisch die VIEWS angelegt so dass jedes Addon dann an die gleichen Daten kommt.
 
 AddOns mit unterschiedlichem Datenbestand
 -----------------------------------------
 
 * Addons müssen die aktuellen Rex-Vars unterstützen (s.u.).
-* Addons werden dann in die `settings.inc.php` eingetragen.
-* Bei jedem Website hinzufügen werden diese dann automatisch reinstalliert und können so für jede Website unterschiedliche Daten speichern.
+* Addons werden dann in den Einstellungen unter "Zu reinstallierende Addons" eingetragen.
+* Bei jedem Website hinzufügen werden diese dann automatisch mit dem Tabellenprefix für die neue Website reinstalliert und können so für jede Website unterschiedliche Daten speichern.
 
 AddOns fitmachen für den Website Manager
 ----------------------------------------
@@ -118,7 +117,7 @@ if (isset($REX['MEDIA_DIR'])) {
 Kompatible AddOns
 -----------------
 
-* SEO42 ab v2.6.0: https://github.com/RexDude/seo42
+* SEO42 ab v4.1.0: https://github.com/RexDude/seo42
 * Slice Status ab v2.0.0: https://github.com/RexDude/slice_status
 * String Table ab v1.3.1: https://github.com/RexDude/string_table
 * Tracking Code ab v1.0.0: https://github.com/RexDude/tracking_code
@@ -137,19 +136,19 @@ Hinweise
 * Läuft nur mit REDAXO 4.5+
 * AddOn-Ordner lautet: `website_manager`
 * Installieren Sie nur die nötigsten AddOns!
-* Log-Files werden unter `/include/data/addons/website_manager/log/` angelegt mit Debug-Informationen, wenn man eine Website hinzufügt oder entfernt.
+* Log-Files werden unter `/include/data/addons/website_manager/log/` angelegt mit Debug-Informationen, wenn man eine Website hinzufügt oder entfernt. Fehlermeldungen tauchen in dem Fall nur in den Log-Files auf!
 * Der Table-Prefix in der `master.inc.php` sollte nicht verändert werden vor der REDAXO-Installation und auf dem Standardwert `rex_` belassen werden. 
 * Das Recht `CREATE VIEW` für die MySQL Datenbank muß vom Provider freigeschaltet sein. In der Log-Datei kann man sonst sehen, dass die MySQL Views nicht angelegt wurden.
 * Import/Export AddOn läuft aktuell nur für die Master-Website. Evtl. sollte man es deshalb vorerst deinstallieren.
-* Meta-Infos und Image-Types werden von Haus aus unterstützt. Zusätzliche AddOns/PlugIns kann man über die entsprechenden Arrays in der `settings.inc.php` hinzufügen sofern man wünscht dass diese pro Website ihren eigenen Datenbestand anlegen. Beispiel-Addons: seo42, slice_status, string_table, tracking_code
+* Meta-Infos und Image-Types werden von Haus aus unterstützt, genauso wie das SEO42 und Slice Status AddOn. Zusätzliche AddOns/PlugIns kann man in den Einstellungen unter "Zu reinstallierende Addons" eingetragen sofern man wünscht dass diese pro Website ihren eigenen Datenbestand anlegen. Beispiel-Addons: string_table, tracking_code
 * Das Meta Info Fixer Tool (noch nicht implementiert) erscheint nur wenn in der `settings.inc.php` die Option `identical_meta_infos` auf `true` steht.
 * Bei gleichen Templates/Modulen muss man den Cache global löschen für alle Websites sobald man Änderungen an diesen vorgenommen hat. Siehe dazu das entsprechende Tool.
-* Die `settings.inc.php` sollte, nachdem man die zweite Website angelegt hat, nicht mehr verändert werden!
-* Das Theme-Plugin ist so gedacht, dass man es für das jeweilige Projekt anpasst bevor man es installiert bzw. verwendet.
-* Muss man irgendwann mal nachträglich ein AddOn installieren (d.h. wenn mehr als 1 Website angelegt wurde), so muss dieses momentan noch von Hand für jede Website reinstalliert werden (gleiches gilt gerade auch für die MetaInfos). 
+* Bestimmte Einstellungen dürfen nicht mehr geändert werden und werden deaktiviert angezeigt sobald man mehr als eine Website angelegt hat.
+* Das Theme-Plugin (nicht mehr mitgeliefert) ist so gedacht, dass man es für das jeweilige Projekt anpasst bevor man es installiert bzw. verwendet.
+* Muss man irgendwann mal nachträglich ein AddOn installieren (d.h. wenn mehr als eine Website angelegt wurde), so muss dieses momentan noch von Hand für jede Website reinstalliert werden (gleiches gilt gerade auch für die MetaInfos). 
 * Der Website Manager wurde aktuell nur in Zusammenspiel mit SEO42 getestet. Für ein optimales Zusammenspiel bitte ALLE Codebeispiele von SEO42 nutzen!
 * Für eine optimale Darstellung sollte als Skin das Standard` agk_skin` Skin von REDAXO genutzt werden.
-* Die Option `ignore_permissions` ist dafür da allen User Zugriff auf alle Websites zu geben. Evtl. nützlich wenn man viele User hat und der Kunde ohne Admin Websites hinzufügen kann/soll.
+* Die Option "Eigene Benutzerrechte ignorieren" ist dafür da allen User Zugriff auf alle Websites zu geben. Evtl. nützlich wenn man viele User hat und der Kunde ohne Admin Websites hinzufügen kann/soll. Oder wenn es Probleme mit den Benutzerrechten gibt ;)
 
 Changelog
 ---------
@@ -166,14 +165,16 @@ Lizenz
 
 siehe [LICENSE.md](LICENSE.md)
 
+Contributors
+------------
+
+polarpixel, gharlan, dergel, olien, riotweb, skerbis, alexplusde, nightstomp und alle die vergessen wurden ;)
+
 Credits
 -------
 
-* Supported by [Peter Bickel](https://github.com/polarpixel) und [Gregor Harlan](https://github.com/gharlan)
-* Danke an das REDAXO-Team für die Erlaubnis die nötigen Core-Änderungen für das AddOn durchführen zu können
-* Danke an [Jan Kristinus](https://github.com/dergel) für die Customizer Idee die hier direkt ins AddOn integriert wurde
-* Danke an die Tester und Contributors: [olien](https://github.com/olien), [riotweb](https://github.com/riotweb), [skerbis](https://github.com/skerbis), [alexplusde](https://github.com/alexplusde)
 * Website Manager uses KLogger PHP-Class: https://github.com/katzgrau/KLogger
 * Website Manager uses Spectrum Colorpicker: https://github.com/bgrins/spectrum
 * Website Manager Themes Plugin uses scssphp PHP-Class: https://github.com/leafo/scssphp/
 * jQuery UI: http://jqueryui.com/
+

@@ -5,7 +5,7 @@ $subpage = rex_request('subpage', 'string');
 
 // if no subpage specified, use this one
 if ($subpage == '') {
-	if (count($REX['ADDON']['website_manager']['SUBPAGES']) > 2) {
+	if (count($REX['ADDON']['website_manager']['SUBPAGES']) > 3) {
 		$subpage = 'websites';
 	} else {
 		$subpage = 'setup';

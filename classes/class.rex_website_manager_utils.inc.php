@@ -364,7 +364,7 @@ class rex_website_manager_utils {
 
 			if (method_exists('Parsedown', 'set_breaks_enabled')) {
 				$out = Parsedown::instance()->set_breaks_enabled(true)->parse($md);
-			} elseif (method_exists('Parsedown', 'set_breaks_enabled')) {
+			} elseif (method_exists('Parsedown', 'setBreaksEnabled')) {
 				$out = Parsedown::instance()->setBreaksEnabled(true)->parse($md);
 			} else {
 				$out = Parsedown::instance()->parse($md);

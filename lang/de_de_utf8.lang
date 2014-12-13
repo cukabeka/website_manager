@@ -61,7 +61,10 @@ website_manager_website_delete_confirm = Wollen Sie diese Website inkl. aller Ar
 website_manager_website_delete_trunedoff = Das Löschen von Websites wurde aus Sicherheitsgründen unterbunden.\r\nBitte kontaktieren Sie Ihren Webmaster.
 
 website_manager_setup_step1 = Schritt 1: Vorbereitungen
-website_manager_setup_step1_msg1 = Bitte lesen Sie zuerst die <a href="index.php?page=website_manager&subpage=help">Readme</a> um sich mit den Besonderheiten dieses AddOns vertraut zu machen.<br />Installieren Sie dann alle AddOns die Sie für die einzelnen Websites einsetzen wollen.<br />Passen Sie dann alle Einstellungen des Website Manager AddOns in der <code>settings.inc.php</code> entsprechend Ihres Projekts an.
+website_manager_setup_step1_msg1a = Bitte lesen Sie zuerst die <a href="index.php?page=website_manager&subpage=help">Readme</a> um sich mit den Besonderheiten dieses AddOns vertraut zu machen.
+website_manager_setup_step1_msg1b = Installieren Sie dann alle AddOns die Sie für die einzelnen Websites einsetzen wollen.
+website_manager_setup_step1_msg1c = Passen Sie dann alle <a href="index.php?page=website_manager&subpage=settings">Einstellungen</a> des Website Manager AddOns entsprechend Ihres Projekts an. Achtung: Manche Einstellungen können nachträglich nicht mehr geändert werden, sobald Sie mehr als eine Website hinzugefügt haben.
+website_manager_setup_step1_msg1d = Es ist möglich weiteren Code auszuführen (z.B. MySQL Views anlegen) wenn Websites hinzugefügt oder gelöscht werden. Passen Sie dazu die Dateien unter <code>/include/data/addons/website_manager/custom/</code> Ihren Bedürfnissen an.
 website_manager_setup_step2 = Schritt 2:  Website Manager Initialisierung
 website_manager_setup_step2_msg1a = In der <code>master.inc.php</code> von REDAXO relativ weit unten bitte exakt (!) nach diesen Zeilen:
 website_manager_setup_step2_msg1b = diese Zeilen hier einfügen:
@@ -76,7 +79,7 @@ website_manager_help_chapter_license = Lizenz
 website_manager_help_chapter_debug = Debug
 website_manager_help_chapter_log = Log
 
-website_manager_help_log_msg = Es findet ein Logging statt wenn man eine Website hinzufügt oder entfernt.<br />Die entsprechenden Logdateien sind hier zu finden: <code>include/data/addons/website_manager/log/</code>
+website_manager_help_log_msg = Es findet ein Logging statt wenn man eine Website hinzufügt oder entfernt.<br />Fehlermeldungen beim Hinzufügen/Entfernen von Websites werden auch nur in den Log-Files angezeigt!<br />Die entsprechenden Logdateien sind hier zu finden: <code>/include/data/addons/website_manager/log/</code>
 website_manager_no_perm_msg = Sie besitzen nicht die erforderlichen Rechte!
 
 website_manager_config_ok = Einstellungen wurden aktualisiert.
@@ -85,8 +88,8 @@ website_manager_install_make_dir = Der Ordner "/redaxo/include/{0}/" kann nicht 
 website_manager_install_perm_dir = Der Ordner "/redaxo/include/{0}/" benötigt Schreibrechte!
 website_manager_install_custom_dir_copy_failed = Die Custom-Files aus dem Install Ordner konnten nicht nach "{0}" kopiert werden!
 
-website_manager_settings_tag_editor_hint_addon = Mehrere Addons mit Enter hinzufügen
-website_manager_settings_tag_editor_hint_plugin = Mehrere Plugins mit Enter hinzufügen im Format Addon:Plugin
+website_manager_settings_tag_editor_hint_addon = Mehrere Addons mit Enter hinzufügen. Format: addon_name
+website_manager_settings_tag_editor_hint_plugin = Mehrere Plugins mit Enter hinzufügen. Format: addon_name:plugin_name
 website_manager_settings_reinstall_addons = Zu reinstallierende Addons
 website_manager_settings_reinstall_plugins = Zu reinstallierende Plugins
 website_manager_settings_identical_media = Gleiche Medien
@@ -95,7 +98,7 @@ website_manager_settings_identical_modules = Gleiche Module
 website_manager_settings_identical_clangs = Gleiche Sprachen<br />(noch nicht unterstützt)
 website_manager_settings_identical_meta_infos = Gleiche MetaInfos<br />(noch nicht unterstützt)
 website_manager_settings_identical_image_types = Gleiche Bildytpen
-website_manager_settings_ignore_permissions = Benutzerrechte ignorieren
+website_manager_settings_ignore_permissions = Eigene Benutzerrechte ignorieren
 website_manager_settings_allow_website_delete = Websites dürfen gelöschen werden
 website_manager_settings_show_metamenu_frontend_link = Frontend Link "zur Website" anzeigen
 website_manager_settings_show_website_name_frontend_link = Frontend Link mit Name der Website anzeigen
@@ -104,4 +107,7 @@ website_manager_settings_colorize_favicon = Favicon einfärben
 website_manager_settings_allow_www_non_www_domains = WWW und Nicht-WWW durchlassen
 website_manager_settings_allow_uninstall = Uninstall des Addons erlauben
 website_manager_settings_save = Einstellungen speichern
+
+website_manager_update_msg = Website Manager: Bitte beachten Sie die <a href="index.php?page=website_manager&subpage=help&chapter=update">Update-Hinweise</a> für diese Version (wenn vorhanden).
+
 

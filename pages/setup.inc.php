@@ -9,7 +9,12 @@ require_once(" . '$' . "REX['INCLUDE_PATH'] . '/data/addons/website_manager/gene
 <div class="rex-addon-output">
 	<h2 class="rex-hl2"><?php echo $I18N->msg('website_manager_setup_step1'); ?></h2>
 	<div class="rex-area-content">
-		<p><?php echo $I18N->msg('website_manager_setup_step1_msg1'); ?></p>
+		<ul>
+			<li><?php echo $I18N->msg('website_manager_setup_step1_msg1a'); ?></li>
+			<li><?php echo $I18N->msg('website_manager_setup_step1_msg1b'); ?></li>
+			<li><?php echo $I18N->msg('website_manager_setup_step1_msg1c'); ?></li>
+			<li><?php echo $I18N->msg('website_manager_setup_step1_msg1d'); ?></li>
+		</ul>
 	</div>
 </div>
 
