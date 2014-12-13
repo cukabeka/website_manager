@@ -132,7 +132,7 @@ Hinweise
 * Läuft nur mit REDAXO 4.5+
 * AddOn-Ordner lautet: `website_manager`
 * Installieren Sie nur die nötigsten AddOns!
-* Ein Log-File wird unter `/website_manager/generated/log/` angelegt mit Debug-Informationen, wenn man eine Website hinzufügt oder entfernt.
+* Log-Files werden unter `/include/data/addons/website_manager/log/` angelegt mit Debug-Informationen, wenn man eine Website hinzufügt oder entfernt.
 * Der Table-Prefix in der `master.inc.php` sollte nicht verändert werden vor der REDAXO-Installation und auf dem Standardwert `rex_` belassen werden. 
 * Das Recht `CREATE VIEW` für die MySQL Datenbank muß vom Provider freigeschaltet sein. In der Log-Datei kann man sonst sehen, dass die MySQL Views nicht angelegt wurden.
 * Import/Export AddOn läuft aktuell nur für die Master-Website. Evtl. sollte man es deshalb vorerst deinstallieren.

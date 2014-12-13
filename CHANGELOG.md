@@ -5,6 +5,7 @@ Website Manager - Changelog
 
 * Update: Bitte die Hinweise in der `UPDATE.md` beachten!
 * Update-Hinweise (auch für alle zukünftigen Versionen) wurden in die Datei `UPDATE.md` ausgelagert und sind auch über die Hilfe im AddOn einsehbar.
+* Updatefähigkeit für REDAXO 4.6 hergestellt. Bei einem Update werden die Einstellungen nicht mehr überschrieben, da diese nun im Data-Ordner von REDAXO abgelegt werden
 * Markdown Addon 1.2.0 Kompatibilität verbessert
 * SEO42 4.0+ Kompatibilität verbessert
 * SEO42 Addon wird automatisch unterstützt wenn verfügbar, thx@Hirbod

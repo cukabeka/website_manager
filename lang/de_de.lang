@@ -75,8 +75,11 @@ website_manager_help_chapter_license = Lizenz
 website_manager_help_chapter_debug = Debug
 website_manager_help_chapter_log = Log
 
-website_manager_help_log_msg = Es findet ein Logging statt wenn man eine Website hinzufügt oder entfernt.<br />Die entsprechenden Logdateien sind hier zu finden: <code>/website_manager/generated/log/</code>
-
+website_manager_help_log_msg = Es findet ein Logging statt wenn man eine Website hinzufügt oder entfernt.<br />Die entsprechenden Logdateien sind hier zu finden: <code>include/data/addons/website_manager/log/</code>
 website_manager_no_perm_msg = Sie besitzen nicht die erforderlichen Rechte!
 
+website_manager_config_ok = Einstellungen wurden aktualisiert.
+website_manager_config_error = Einstellungen konnte nicht gespeichert werden!
+website_manager_install_make_dir = Der Ordner "/redaxo/include/{0}/" kann nicht angelegt werden, überprüfen Sie die Schreibrechte oder legen Sie den Ordner von Hand an und geben ihm Schreibrechte.
+website_manager_install_perm_dir = Der Ordner "/redaxo/include/{0}/" benötigt Schreibrechte!
 

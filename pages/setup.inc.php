@@ -3,7 +3,7 @@ $codeExample1 = "// ----- SET CLANG
 include_once " . '$' . "REX['INCLUDE_PATH'].'/clang.inc.php';";
 
 $codeExample2 = "// init website manager
-require_once(" . '$' . "REX['INCLUDE_PATH'] . '/addons/website_manager/generated/init.inc.php');";
+require_once(" . '$' . "REX['INCLUDE_PATH'] . '/data/addons/website_manager/generated/init.inc.php');";
 ?>
 
 <div class="rex-addon-output">

@@ -77,7 +77,7 @@ class rex_website_manager {
 	protected function includeClangFile() {
 		global $REX;
 
-		require($REX['INCLUDE_PATH'] . '/addons/website_manager/generated/' . $this->getCurrentWebsite()->getClangFile());
+		require(WEBSITE_MANAGER_GENERATED_DIR . $this->getCurrentWebsite()->getClangFile());
 	}
 
 	protected function getWebsiteIdForFrontend() {
@@ -180,17 +180,18 @@ class rex_website_manager {
 		global $REX;
 
 		$initContent = '';
-		$initFile = $REX['INCLUDE_PATH'] . '/addons/website_manager/generated/init.inc.php';
+		$initFile = WEBSITE_MANAGER_GENERATED_DIR . 'init.inc.php';
 
 		if (!file_exists($initFile)) {
 			rex_website_manager_utils::createDynFile($initFile);
 		}
 
 		// inludes
-		$initContent .= 'require_once($REX[\'INCLUDE_PATH\'] . \'/addons/website_manager/settings.inc.php\');' . PHP_EOL;
+		$initContent .= 'require_once($REX[\'INCLUDE_PATH\'] . \'/data/addons/website_manager/settings.inc.php\');' . PHP_EOL;
+		$initContent .= 'require_once($REX[\'INCLUDE_PATH\'] . \'/addons/website_manager/paths.inc.php\');' . PHP_EOL;
 		$initContent .= 'require_once($REX[\'INCLUDE_PATH\'] . \'/addons/website_manager/classes/class.rex_website.inc.php\');' . PHP_EOL;
 		$initContent .= 'require_once($REX[\'INCLUDE_PATH\'] . \'/addons/website_manager/classes/class.rex_website_manager.inc.php\');' . PHP_EOL;
-		$initContent .= 'require_once($REX[\'INCLUDE_PATH\'] . \'/addons/website_manager/plugins/themes/classes/class.rex_website_theme.inc.php\');' . PHP_EOL . PHP_EOL;
+		$initContent .= '@include_once($REX[\'INCLUDE_PATH\'] . \'/addons/website_manager/plugins/themes/classes/class.rex_website_theme.inc.php\');' . PHP_EOL . PHP_EOL;
 
 		// create website manager
 		$initContent .= '$REX[\'WEBSITE_MANAGER\'] = new rex_website_manager();' . PHP_EOL . PHP_EOL;
@@ -231,10 +232,10 @@ class rex_website_manager {
 
 		// write clangs to website specific clang file
 		if (isset($REX['WEBSITE_MANAGER'])) {
-			$clangFile = $REX['INCLUDE_PATH'] . '/addons/website_manager/generated/' . $REX['WEBSITE_MANAGER']->getCurrentWebsite()->getClangFile();
+			$clangFile = WEBSITE_MANAGER_GENERATED_DIR . $REX['WEBSITE_MANAGER']->getCurrentWebsite()->getClangFile();
 		} else {
 			// this is when addon is getting installed
-			$clangFile = $REX['INCLUDE_PATH'] . '/addons/website_manager/generated/' . rex_website::constructClangFile(1);
+			$clangFile = WEBSITE_MANAGER_GENERATED_DIR . rex_website::constructClangFile(1);
 		}
 
 		if (!file_exists($clangFile)) {
@@ -247,7 +248,7 @@ class rex_website_manager {
 	public static function createClangFile($websiteId) {
 		global $REX;
 
-		$clangFile = $REX['INCLUDE_PATH'] . '/addons/website_manager/generated/' . rex_website::constructClangFile($websiteId);
+		$clangFile = WEBSITE_MANAGER_GENERATED_DIR . rex_website::constructClangFile($websiteId);
 
 		if (!file_exists($clangFile)) {
 			rex_website_manager_utils::createDynFile($clangFile);
@@ -259,7 +260,7 @@ class rex_website_manager {
 	public static function deleteClangFile($websiteId) {
 		global $REX;
 
-		$clangFile = $REX['INCLUDE_PATH'] . '/addons/website_manager/generated/' . rex_website::constructClangFile($websiteId);
+		$clangFile = WEBSITE_MANAGER_GENERATED_DIR . rex_website::constructClangFile($websiteId);
 
 		if (file_exists($clangFile)) {
 			unlink($clangFile);
@@ -303,7 +304,7 @@ class rex_website_manager {
 		$mediaDir = rex_website::constructMediaDir($websiteId);
 
 		// init logger
-		$logFile = $REX['INCLUDE_PATH'] . '/addons/website_manager/generated/log';
+		$logFile = WEBSITE_MANAGER_LOG_DIR;
 		$log = KLogger::instance($logFile, KLogger::INFO);
 
 		$log->logInfo('======================================== CREATE WEBSITE WITH ID = ' . $websiteId . ' ========================================');
@@ -317,7 +318,7 @@ class rex_website_manager {
 		}
 
 		// include custom php file with additional userdefined stuff
-		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/create_website.before.inc.php');
+		require_once(WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.before.inc.php');
 
 		// seo42 support
 		if (OOAddOn::isAvailable('seo42') && !in_array('seo42', $REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons'])) {
@@ -486,7 +487,7 @@ class rex_website_manager {
 		}
 
 		// include custom php file with additional userdefined stuff
-		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/create_website.after.inc.php');
+		require_once(WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.after.inc.php');
 
 		// put back stuff for master website
 		$REX['TABLE_PREFIX'] = rex_website::tablePrefix;
@@ -503,7 +504,8 @@ class rex_website_manager {
 		$mediaDir = rex_website::constructMediaDir($websiteId);
 
 		// init logger
-		$logFile = $REX['INCLUDE_PATH'] . '/addons/website_manager/generated/log';
+		$logFile = WEBSITE_MANAGER_LOG_DIR;
+
 		$log = KLogger::instance($logFile, KLogger::INFO);
 
 		$log->logInfo('======================================== DESTROY WEBSITE WITH ID = ' . $websiteId . ' ========================================');
@@ -517,7 +519,7 @@ class rex_website_manager {
 		}
 
 		// include custom php file with additional userdefined stuff
-		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/destroy_website.before.inc.php');
+		require_once(WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.before.inc.php');
 
 		// ***************************************************************************************************
 		// database views
@@ -597,7 +599,7 @@ class rex_website_manager {
 		}
 
 		// include custom php file with additional userdefined stuff
-		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/custom/destroy_website.after.inc.php');
+		require_once(WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.after.inc.php');
 	}
 
 	public function websiteSwitch($switchedWebsiteId, $func) {

@@ -10,16 +10,22 @@ $REX['ADDON']['perm']['website_manager'] = 'website_manager[]';
 // permissions
 $REX['PERM'][] = 'website_manager[]';
 
+if ($REX['REDAXO']) {
+	// add lang file
+	$I18N->appendFile($REX['INCLUDE_PATH'] . '/addons/website_manager/lang/');
+}
+
 // front and backend includes
+require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/paths.inc.php');
+require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/install/settings.default.inc.php');
 require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/classes/class.rex_website_manager_utils.inc.php');
+
+// overwrite default settings with user settings
+rex_website_manager_utils::includeSettingsFile();
 
 if ($REX['REDAXO'] && !$REX['SETUP']) {
 	// backend includes
 	require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/classes/class.klogger.inc.php');
-	require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/settings.inc.php');
-	
-	// add lang file
-	$I18N->appendFile($REX['INCLUDE_PATH'] . '/addons/website_manager/lang/');
 
 	// logout stuff
 	if (rex_request('rex_logout') == 1) {
@@ -58,7 +64,7 @@ if ($REX['REDAXO'] && !$REX['SETUP']) {
 		);
 	} else {
 		// this is only neccesary until user has put this code line in master.inc.php
-		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/generated/init.inc.php');
+		require_once(WEBSITE_MANAGER_GENERATED_DIR . 'init.inc.php');
 
 		// used for addon uninstall to stop user from uninstallig when wm codeline ist still in master.inc.php
 		$REX['WEBSITE_MANAGER_DO_UNINSTALL'] = true;
