@@ -36,7 +36,6 @@ class rex_website {
 		$this->tablePrefix = $tablePrefix;
 		$this->protocol = $protocol;
 		$this->themeId = $themeId;
-		$this->theme = new rex_website_theme($themeId);
 		$this->permission = self::permissionPrefix . '[' . $id . ']';
 
 		if (strpos($this->domain, "www.") === false) {
@@ -45,6 +44,12 @@ class rex_website {
 		} else {
 			$this->wwwDomain = $this->domain;
 			$this->nonWWWDomain = str_replace('www.', '', $this->domain);
+		}
+
+		if (class_exists('rex_website_theme')) {
+			$this->theme = new rex_website_theme($themeId);
+		} else {
+			$this->theme = null;
 		}
 	}
 

@@ -59,7 +59,7 @@ if ($REX['REDAXO'] && !$REX['SETUP']) {
 
 		array_push($REX['ADDON']['website_manager']['SUBPAGES'], 
 			array('tools', $I18N->msg('website_manager_tools')),
-			array('options', $I18N->msg('website_manager_options')),
+			array('settings', $I18N->msg('website_manager_settings')),
 			array('setup', $I18N->msg('website_manager_setup')),
 			array('help', $I18N->msg('website_manager_help'))
 		);

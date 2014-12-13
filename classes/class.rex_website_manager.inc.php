@@ -63,7 +63,11 @@ class rex_website_manager {
 		$this->includeClangFile();
 		$this->addPermissions();
 
-		$this->getCurrentWebsite()->getTheme()->init();
+		$theme = $this->getCurrentWebsite()->getTheme();
+
+		if ($theme != null) {
+			$theme->init();
+		}
 	}
 
 	protected function addPermissions() {

@@ -17,6 +17,11 @@ Features
 * Rechtemanagement
 * Theme-Plugin (inkl. SCSS Unterstützung) um pro Website bestimmte Werte (z.B. Farbwerte, Logos) abspeichern und dann z.B. eine CSS darauss generieren zu können.
 
+Verfügbare Plugins
+------------------
+
+* [themes](https://github.com/RexDude/themes) - Theme-Plugin für den Website Manager
+
 Hinweis zu REDAXO-Unterordnerinstallationen
 -------------------------------------------
 
