@@ -149,6 +149,7 @@ Hinweise
 * Der Website Manager wurde aktuell nur in Zusammenspiel mit SEO42 getestet. Für ein optimales Zusammenspiel bitte ALLE Codebeispiele von SEO42 nutzen!
 * Für eine optimale Darstellung sollte als Skin das Standard` agk_skin` Skin von REDAXO genutzt werden.
 * Die Option "Eigene Benutzerrechte ignorieren" ist dafür da allen User Zugriff auf alle Websites zu geben. Evtl. nützlich wenn man viele User hat und der Kunde ohne Admin Websites hinzufügen kann/soll. Oder wenn es Probleme mit den Benutzerrechten gibt ;)
+* SEO42 4.0+ speichert pro neue Website eine eigene Settings-Datei ab die die Standardeinstellungen des Addons enthält. Evtl. muss man hier per Custom-Code eine Aktualisierung durchführen (z.B. Werte setzen oder die ganze Settings-Datei der Master-Website kopieren).
 
 Changelog
 ---------

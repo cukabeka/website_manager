@@ -9,7 +9,7 @@ Website Manager - Changelog
 * Einstellungen nun alle über das Backend verfügbar
 * Themes Plugin entfernt wegen Updatefähigkeit. Es kann nun von Hand dazuinstalliert werden. Readme Eintrag zum Thema "Verfügbare Plugins" ergänzt.
 * Markdown Addon 1.2.0 Kompatibilität verbessert
-* SEO42 4.0+ Kompatibilität verbessert
+* SEO42 4.0+ Kompatibilität verbessert und Hinweis zu den Settings-Dateien von SEO42 in die Readme aufgenommen
 * SEO42 Addon wird automatisch unterstützt wenn verfügbar, thx@Hirbod
 * Slice Status Addon wird automatisch unterstützt wenn verfügbar
 * Debug Seite erweitert
