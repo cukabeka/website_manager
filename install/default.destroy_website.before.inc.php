@@ -1,5 +1,7 @@
 <?php
 /*
+ * destroy_website.before.inc.php
+ *
  * add custom stuff to this file when a website is destroyed
  * this file is included BEFORE all other db operations take place
  * 

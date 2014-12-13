@@ -1,5 +1,7 @@
 <?php
 /*
+ * create_website.after.inc.php
+ *
  * add custom stuff to this file when new website is created
  * this file is included AFTER all other db operations took place
  * 

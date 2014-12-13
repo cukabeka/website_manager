@@ -1,5 +1,7 @@
 <?php
 /*
+ * create_website.before.inc.php
+ *
  * add custom stuff to this file when new website is created
  * this file is included BEFORE all other db operations take place
  * 

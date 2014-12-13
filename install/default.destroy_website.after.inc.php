@@ -1,5 +1,7 @@
 <?php
 /*
+ * destroy_website.after.inc.php
+ *
  * add custom stuff to this file when a website is destroyed
  * at this point all tables and views are already automatically deleted by website manager addon
  * 
