@@ -50,5 +50,8 @@ $REX['WEBSITE_MANAGER_SETTINGS'] = array(
 	'colorize_favicon' => true, 
 
 	// if true www and non-www domains will be supported for a website, needed for SEO42 no double content redirects
-	'allow_www_non_www_domains' => true 
+	'allow_www_non_www_domains' => true,
+
+	// for security reasons. allow uninstall of addon only if true. all custom and generated data will be deleted in data dir of REDAXO!!!
+	'allow_uninstall' => false
 );

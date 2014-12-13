@@ -67,16 +67,16 @@ if (version_compare($REX['VERSION'] . '.' . $REX['SUBVERSION'] . '.' . $REX['MIN
 	} elseif ($msg[3] != '') {
 		rex_warning($msg[3]);
 	} else {
-		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/install/settings.default.inc.php');
+		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.settings.inc.php');
 
-		rex_website_manager_utils::includeSettingsFile();
+		rex_website_manager_utils::includeSettingsFile(); // will be also creadted if does not exist
 		rex_website_manager::updateInitFile();
 		rex_website_manager::fixClang(null);
 
-		$copySuccess[0] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/create_website.before.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.before.inc.php');
-		$copySuccess[1] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/create_website.after.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.after.inc.php');
-		$copySuccess[2] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/destroy_website.before.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.before.inc.php');
-		$copySuccess[3] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/destroy_website.after.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.after.inc.php');
+		$copySuccess[0] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.create_website.before.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.before.inc.php');
+		$copySuccess[1] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.create_website.after.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.after.inc.php');
+		$copySuccess[2] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.destroy_website.before.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.before.inc.php');
+		$copySuccess[3] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.destroy_website.after.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.after.inc.php');
 
 		if ($copySuccess[0] && $copySuccess[1] && $copySuccess[2] && $copySuccess[3]) {
 			$REX['ADDON']['install']['website_manager'] = 1;

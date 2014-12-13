@@ -19,6 +19,7 @@ website_manager_install_customizer = Bitte deaktivieren Sie unter System folgend
 website_manager_uninstall_codeline_hint = Bitte entfernen Sie die Codezeile (Setup Schritt 2) aus der master.inc.php von REDAXO!
 website_manager_uninstall_activate_first = Das AddOn muss aktiviert sein, bevor es deinstalliert werden kann!
 website_manager_uninstall_delete_generated = Bitte alle angelegten <a href="index.php?page=website_manager">Websites</a> (ausser ID=1) von Hand löschen!
+website_manager_uninstall_allow_uninstall = In den Einstellungen des Addons muss zuerst das Deinstallieren des Addons erlaubt werden! Achtung!!! Alle Daten unter "/include/data/addons/website_manager/" gehen verloren.
 
 website_manager_tools_cache_deleted = Cache für alle Websites gelöscht.
 website_manager_tools_cache_tool = Cache löschen für alle Websites

@@ -11,6 +11,7 @@ Website Manager - Changelog
 * SEO42 Addon wird automatisch unterstützt wenn verfügbar, thx@Hirbod
 * Slice Status Addon wird automatisch unterstützt wenn verfügbar
 * `allow_www_non_www_domains` Option hinzugefügt. Damit kann man steuern ob WWW/Nicht-WWW Domains durchgelassen werden. Wichtig für die No Double Content Redirects in SEO42 4.0+
+* `allow_uninstall` Option hinzugefügt. Addon kann nur noch deinstalliert werden wenn Option eingeschaltet ist. Sicherheitsmaßnahme da auch die ganzen Dateien im DATA Ordner von REDAXO gelöscht werden bei Deinstallation.
 * "Website nicht gefunden" Meldung jetzt inkl. betreffender Domain
 
 ### Version 2.0.0 - 02. Februar 2014

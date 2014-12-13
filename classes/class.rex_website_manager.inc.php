@@ -187,8 +187,9 @@ class rex_website_manager {
 		}
 
 		// inludes
-		$initContent .= 'require_once($REX[\'INCLUDE_PATH\'] . \'/data/addons/website_manager/settings.inc.php\');' . PHP_EOL;
 		$initContent .= 'require_once($REX[\'INCLUDE_PATH\'] . \'/addons/website_manager/paths.inc.php\');' . PHP_EOL;
+		$initContent .= 'require_once($REX[\'INCLUDE_PATH\'] . \'/addons/website_manager/install/default.settings.inc.php\');' . PHP_EOL;
+		$initContent .= 'require_once($REX[\'INCLUDE_PATH\'] . \'/data/addons/website_manager/settings.inc.php\');' . PHP_EOL;
 		$initContent .= 'require_once($REX[\'INCLUDE_PATH\'] . \'/addons/website_manager/classes/class.rex_website.inc.php\');' . PHP_EOL;
 		$initContent .= 'require_once($REX[\'INCLUDE_PATH\'] . \'/addons/website_manager/classes/class.rex_website_manager.inc.php\');' . PHP_EOL;
 		$initContent .= '@include_once($REX[\'INCLUDE_PATH\'] . \'/addons/website_manager/plugins/themes/classes/class.rex_website_theme.inc.php\');' . PHP_EOL . PHP_EOL;
