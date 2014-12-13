@@ -7,8 +7,9 @@ Website Manager - Changelog
 * Update-Hinweise (auch für alle zukünftigen Versionen) wurden in die Datei `UPDATE.md` ausgelagert und sind auch über die Hilfe im AddOn einsehbar.
 * Markdown Addon 1.2.0 Kompatibilität verbessert
 * SEO42 4.0+ Kompatibilität verbessert
+* SEO42 Addon wird automatisch unterstützt wenn verfügbar, thx@Hirbod
+* Slice Status Addon wird automatisch unterstützt wenn verfügbar
 * `allow_www_non_www_domains` Option hinzugefügt. Damit kann man steuern ob WWW/Nicht-WWW Domains durchgelassen werden. Wichtig für die No Double Content Redirects in SEO42 4.0+
-* SEO42 wird automatisch unterstützt wenn verfügbar, thx@Hirbod
 * "Website nicht gefunden" Meldung jetzt inkl. betreffender Domain
 
 ### Version 2.0.0 - 02. Februar 2014
