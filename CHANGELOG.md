@@ -1,7 +1,7 @@
 Website Manager - Changelog
 ===========================
 
-### Version 3.0.0 DEV
+### Version 3.0.0 - 14. Dezember 2014
 
 * Update: Bitte die Hinweise in der `UPDATE.md` beachten!
 * Update-Hinweise (auch für alle zukünftigen Versionen) wurden in die Datei `UPDATE.md` ausgelagert und sind auch über die Hilfe im AddOn einsehbar.
