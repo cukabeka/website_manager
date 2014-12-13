@@ -17,7 +17,7 @@ if ($REX['REDAXO']) {
 
 // front and backend includes
 require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/paths.inc.php');
-require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.settings.inc.php');
+require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/settings.default.inc.php');
 require_once($REX['INCLUDE_PATH'] . '/data/addons/website_manager/settings.inc.php');
 require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/classes/class.rex_website_manager_utils.inc.php');
 

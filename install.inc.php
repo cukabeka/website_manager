@@ -67,7 +67,7 @@ if (version_compare($REX['VERSION'] . '.' . $REX['SUBVERSION'] . '.' . $REX['MIN
 	} elseif ($msg[3] != '') {
 		rex_warning($msg[3]);
 	} else {
-		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.settings.inc.php');
+		require_once($REX['INCLUDE_PATH'] . '/addons/website_manager/settings.default.inc.php');
 
 		rex_website_manager_utils::includeSettingsFile(); // will be also creadted if does not exist
 		rex_website_manager::updateInitFile();
