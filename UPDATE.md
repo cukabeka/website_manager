@@ -4,7 +4,7 @@ Website Manager - Updatehinweise
 ### Version 3.0.0
 
 * Achtung! Ein Update sollte nur durchgeführt werden wenn Sie die Features der neuen Version (wie z.B. verbesserte Updatefähigkeit) nutzen wollen. Update auf eigene Gefahr!!!
-* Machen Sie ein Backup des Addons und evtl. auch der Datenbank.
+* Machen Sie ein Backup des Addons und evtl. auch der Datenbank bzw. Ihrer ganzen Installation.
 * Entfernen Sie die Codezeile aus dem Setup Schritt 2 in der `master.inc.php`.
 * In der `uninstall.inc.php` alles entfernen und nur doch das drinnen lassen: `<?php $REX['ADDON']['install']['website_manager'] = 0;`.
 * Bei installiertem Themes Plugin die `uninstall.sql` im Plugin Ordner entfernen.

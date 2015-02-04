@@ -73,11 +73,32 @@ if (version_compare($REX['VERSION'] . '.' . $REX['SUBVERSION'] . '.' . $REX['MIN
 		rex_website_manager::updateInitFile();
 		rex_website_manager::fixClang(null);
 
-		$copySuccess[0] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.create_website.before.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.before.inc.php');
-		$copySuccess[1] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.create_website.after.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.after.inc.php');
-		$copySuccess[2] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.destroy_website.before.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.before.inc.php');
-		$copySuccess[3] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.destroy_website.after.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.after.inc.php');
+		// copy sutom files
+		if (file_exists(WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.before.inc.php')) {
+			$copySuccess[0] = true;
+		} else {
+			$copySuccess[0] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.create_website.before.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.before.inc.php');
+		}
 
+		if (file_exists(WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.after.inc.php')) {
+			$copySuccess[1] = true;
+		} else {
+			$copySuccess[1] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.create_website.after.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.after.inc.php');
+		}
+
+		if (file_exists(WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.before.inc.php')) {
+			$copySuccess[2] = true;
+		} else {
+			$copySuccess[2] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.destroy_website.before.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.before.inc.php');
+		}
+
+		if (file_exists(WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.after.inc.php')) {
+			$copySuccess[3] = true;
+		} else {
+			$copySuccess[3] = copy($REX['INCLUDE_PATH'] . '/addons/website_manager/install/default.destroy_website.after.inc.php', WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.after.inc.php');
+		}
+
+		// finished
 		if ($copySuccess[0] && $copySuccess[1] && $copySuccess[2] && $copySuccess[3]) {
 			$REX['ADDON']['install']['website_manager'] = 1;
 		} else {

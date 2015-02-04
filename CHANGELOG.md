@@ -1,6 +1,11 @@
 Website Manager - Changelog
 ===========================
 
+### Version 3.0.1 - 04. Februar 2015
+
+* Unter Einstellungen können Addons und Plugins auch nachträglich noch hinzugefügt werden
+* Finetuning
+
 ### Version 3.0.0 - 14. Dezember 2014
 
 * Update: Bitte die Hinweise in der `UPDATE.md` beachten!

@@ -35,14 +35,14 @@ if ($REX['WEBSITE_MANAGER']->getWebsiteCount() > 1) {
 					<div class="rex-form-row rex-form-element-v1">
 						<p class="rex-form-text">
 							<label for="reinstall_addons"><?php echo $I18N->msg('website_manager_settings_reinstall_addons'); ?></label>
-							<input <?php echo $disabled; ?> type="text" value="<?php echo rex_website_manager_utils::implodeArray($REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons']); ?>" name="settings[reinstall_addons]" class="rex-form-text tags addon" id="reinstall_addons">
+							<input type="text" value="<?php echo rex_website_manager_utils::implodeArray($REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons']); ?>" name="settings[reinstall_addons]" class="rex-form-text tags addon" id="reinstall_addons">
 						</p>
 					</div>
 
 					<div class="rex-form-row rex-form-element-v1">
 						<p class="rex-form-text">
 							<label for="reinstall_plugins"><?php echo $I18N->msg('website_manager_settings_reinstall_plugins'); ?></label>
-							<input <?php echo $disabled; ?>type="text" value="<?php echo rex_website_manager_utils::implodeArray($REX['WEBSITE_MANAGER_SETTINGS']['reinstall_plugins']); ?>" name="settings[reinstall_plugins]" class="rex-form-text tags plugin" id="reinstall_plugins">
+							<input type="text" value="<?php echo rex_website_manager_utils::implodeArray($REX['WEBSITE_MANAGER_SETTINGS']['reinstall_plugins']); ?>" name="settings[reinstall_plugins]" class="rex-form-text tags plugin" id="reinstall_plugins">
 						</p>
 					</div>
 
@@ -173,43 +173,19 @@ if ($REX['WEBSITE_MANAGER']->getWebsiteCount() > 1) {
 	jQuery(document).ready(function($) {
 		// tag editor inputs fields
 		$('input.tags.addon').tagEditor({
-			<?php if ($disabled == '') { ?>
-				placeholder: "<?php echo $I18N->msg('website_manager_settings_tag_editor_hint_addon'); ?>"
-			<?php } else { ?>
-				placeholder: "<?php echo $I18N->msg('website_manager_settings_tag_editor_hint_addon'); ?>",
-				beforeTagDelete: function(field, editor, tags, val) {
-					return false;
-				},
-				maxLength: 0
-			<?php } ?>
+			placeholder: "<?php echo $I18N->msg('website_manager_settings_tag_editor_hint_addon'); ?>"
 		});
 
 		$('input.tags.plugin').tagEditor({
-			<?php if ($disabled == '') { ?>
-				placeholder: "<?php echo $I18N->msg('website_manager_settings_tag_editor_hint_plugin'); ?>"
-			<?php } else { ?>
-				placeholder: "<?php echo $I18N->msg('website_manager_settings_tag_editor_hint_plugin'); ?>",
-				beforeTagDelete: function(field, editor, tags, val) {
-					return false;
-				},
-				maxLength: 0
-			<?php } ?>
+			placeholder: "<?php echo $I18N->msg('website_manager_settings_tag_editor_hint_plugin'); ?>"
 		});
 	});
 </script>
 
-<?php if ($disabled != '') { ?>
 <style type="text/css">
-.tag-editor .tag-editor-tag {
-	color: grey;
-	background: #eee;
-	cursor: pointer;
-}
-
-.tag-editor .tag-editor-delete {
-	display: none;
+.tag-editor .tag-editor-delete i {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAVCAYAAACKTPRDAAAAAXNSR0IArs4c6QAAALRJREFUKM/djrsNwkAQRN+apqyLzkWYNkyCM6SJcUIbfNyDIyC3RQMWZaAlOSNAyAWwya7eaGbWJLVAI+lKGkk5sM6ABjhKCkkIwBFo7B2Y2dbda6CUdF4AdF03FkXxcPedmW0knQCyyenutZmt3L2eKhap/AAsJZ1ijFdgH2O8ZMB66kgpZ6BM/G9mgPYG+Tu7QT5AOx1jDwGghzDA+DIkcO+hSjt8xCfBe6i+hd/O2c65b59NWGY4WqqKhQAAAABJRU5ErkJggg==');
 }
 </style>
-<?php } ?>
 
 
