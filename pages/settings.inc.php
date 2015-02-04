@@ -171,6 +171,9 @@ if ($REX['WEBSITE_MANAGER']->getWebsiteCount() > 1) {
 
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
+		if (!jQuery.ui) {
+			$('head').append('<script type="text/javascript" src="../files/addons/website_manager/jquery-ui.min.js" />');
+		}
 		// tag editor inputs fields
 		$('input.tags.addon').tagEditor({
 			placeholder: "<?php echo $I18N->msg('website_manager_settings_tag_editor_hint_addon'); ?>"
