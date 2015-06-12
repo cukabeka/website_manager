@@ -13,7 +13,7 @@ if ($func == 'update') {
 }
 
 if ($REX['WEBSITE_MANAGER']->getWebsiteCount() > 1) {
-	$disabled = ' readonly="readonly" ';
+	$disabled = ' disabled="disabled" ';
 } else {
 	$disabled = '';
 }
@@ -181,6 +181,10 @@ if ($REX['WEBSITE_MANAGER']->getWebsiteCount() > 1) {
 
 		$('input.tags.plugin').tagEditor({
 			placeholder: "<?php echo $I18N->msg('website_manager_settings_tag_editor_hint_plugin'); ?>"
+		});
+
+		$("form").submit(function() {
+			$("input").removeAttr("disabled");
 		});
 	});
 </script>

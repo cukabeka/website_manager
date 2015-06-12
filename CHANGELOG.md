@@ -3,7 +3,7 @@ Website Manager - Changelog
 
 ### Version 3.1.0 DEV
 
-* Fixed #53: Beim abspeichern der Einstellungen ging diese verloren (nur Einstellungen die disabled waren)
+* Fixed #53: Beim Abspeichern der Einstellungen gingen diese verloren (nur Einstellungen die disabled waren)
 * Folgende Extension Points inkl. Beispiel-Anwwendung in der Readme wurden hinzugefügt: `WEBSITE_BEFORE_CREATED`, `WEBSITE_AFTER_CREATED`, `WEBSITE_BEFORE_DESTROYED`, `WEBSITE_AFTER_DESTROYED`
 
 ### Version 3.0.1 - 04. Februar 2015
