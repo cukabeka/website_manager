@@ -326,6 +326,9 @@ class rex_website_manager {
 		// include custom php file with additional userdefined stuff
 		require_once(WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.before.inc.php');
 
+		// extension point
+		rex_register_extension_point('WEBSITE_BEFORE_CREATED', array('website_id' => $websiteId, 'sql_object' => $sql, 'table_prefix' => $tablePrefix, 'generated_dir' => $generatedDir, 'media_dir' => $mediaDir, 'log_object' => $log));
+
 		// seo42 support
 		if (OOAddOn::isAvailable('seo42') && !in_array('seo42', $REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons'])) {
 			$REX['WEBSITE_MANAGER_SETTINGS']['reinstall_addons'][] = 'seo42';
@@ -508,6 +511,9 @@ class rex_website_manager {
 		// include custom php file with additional userdefined stuff
 		require_once(WEBSITE_MANAGER_CUSTOM_DIR . 'create_website.after.inc.php');
 
+		// extension point
+		rex_register_extension_point('WEBSITE_AFTER_CREATED', array('website_id' => $websiteId, 'sql_object' => $sql, 'table_prefix' => $tablePrefix, 'generated_dir' => $generatedDir, 'media_dir' => $mediaDir, 'log_object' => $log));
+
 		// put back stuff for master website
 		$REX['TABLE_PREFIX'] = rex_website::tablePrefix;
 		$REX['GENERATED_PATH'] = realpath($REX['HTDOCS_PATH'] . 'redaxo/include/' . rex_website::generatedDir);
@@ -539,6 +545,9 @@ class rex_website_manager {
 
 		// include custom php file with additional userdefined stuff
 		require_once(WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.before.inc.php');
+
+		// extension point
+		rex_register_extension_point('WEBSITE_BEFORE_DESTROYED', array('website_id' => $websiteId, 'sql_object' => $sql, 'table_prefix' => $tablePrefix, 'generated_dir' => $generatedDir, 'media_dir' => $mediaDir, 'log_object' => $log));
 
 		// ***************************************************************************************************
 		// database views
@@ -619,6 +628,9 @@ class rex_website_manager {
 
 		// include custom php file with additional userdefined stuff
 		require_once(WEBSITE_MANAGER_CUSTOM_DIR . 'destroy_website.after.inc.php');
+
+		// extension point
+		rex_register_extension_point('WEBSITE_AFTER_DESTROYED', array('website_id' => $websiteId, 'sql_object' => $sql, 'table_prefix' => $tablePrefix, 'generated_dir' => $generatedDir, 'media_dir' => $mediaDir, 'log_object' => $log));
 	}
 
 	public function websiteSwitch($switchedWebsiteId, $func) {
