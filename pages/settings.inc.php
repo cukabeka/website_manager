@@ -13,7 +13,7 @@ if ($func == 'update') {
 }
 
 if ($REX['WEBSITE_MANAGER']->getWebsiteCount() > 1) {
-	$disabled = ' disabled="disabled" ';
+	$disabled = ' readonly="readonly" ';
 } else {
 	$disabled = '';
 }
