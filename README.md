@@ -20,6 +20,7 @@ Verfügbare Plugins
 ------------------
 
 * [themes](https://github.com/RexDude/themes) - Theme-Plugin (inkl. SCSS Unterstützung) um pro Website bestimmte Werte (z.B. Farbwerte, Logos) abspeichern und dann z.B. eine CSS darauss generieren zu können.
+* [siteclone](https://github.com/RexDude/siteclone) - SiteClone-Plugin: Mit diesem Plugin werden beim Anlegen einer neuen Website automatisch Struktur, Inhalte, Strings (aus dem String Table Addon) usw. dupliziert.
 
 Hinweis zu REDAXO-Unterordnerinstallationen
 -------------------------------------------
