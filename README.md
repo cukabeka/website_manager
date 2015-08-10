@@ -53,6 +53,7 @@ API (Auszug)
 ------------
 
 ```php
+<?php
 // ausgabe des artikels mit id = 10 von website mit id = 5 
 echo $REX['WEBSITE_MANAGER']->getWebsite(5)->getArticle(10);
 
@@ -73,6 +74,7 @@ $REX['WEBSITE_MANAGER']->websiteSwitch(2, function() {
 $REX['WEBSITE_MANAGER']->masterWebsiteSwitch(function() {
 	// hier drin gilt jetzt website id = 1 (master)
 });
+?>
 ```
 
 AddOns mit gleichem Datenbestand
@@ -95,6 +97,7 @@ AddOns fitmachen für den Website Manager
 Damit andere AddOns auch problemlos mit dem Website Manager zusammentun, muss man hauptsächlich folgende REDAXO Variablen einsetzen, anstelle der sonst üblichen hartcodierten Strings:
 
 ```php
+<?php
 $REX['TABLE_PREFIX']
 $REX['MEDIAFOLDER']
 
@@ -102,16 +105,48 @@ $REX['MEDIAFOLDER']
 $REX['MEDIA_DIR']
 $REX['MEDIA_ADDON_DIR']
 $REX['GENERATED_PATH']
+?>
 ```
 
 Wichtig: Um Abwärtskompatibilität der AddOns mit älteren REDAXO Versionen zu gewährleisten, sollten immer über `isset()` geprüft werden ob die Variablen überhaupt exisitieren. Hier mal ein Beispiel: 
 
 ```php
+<?php
 if (isset($REX['MEDIA_DIR'])) {
 	return $REX['MEDIA_DIR'];
 } else {
 	return 'files';
 }
+?>
+```
+
+Website Manager Extension Points
+--------------------------------
+
+Es gibt 4 Extension Points über die man eigenen Code ausführen kann, z.B. um einen MySQL VIEW anzulegen:
+
+* `WEBSITE_BEFORE_CREATED` - Wird aufgerufen bevor eine Website erzeugt wird.
+* `WEBSITE_AFTER_CREATED` - Wird aufgerufen nachdem eine Website erzeugt wurde.
+* `WEBSITE_BEFORE_DESTROYED` - Wird aufgerufen bevor eine Website zerstört/gelöscht wird.
+* `WEBSITE_AFTER_DESTROYED` - Wird aufgerufen nachdem eine Website zerstört/gelöscht wurde.
+
+Codebeispiel:
+
+```
+<?php
+rex_register_extension('WEBSITE_AFTER_CREATED', function($params) {
+	global $REX;
+
+	$sql = $params['subject']['sql_object']; // sql object used to perform db operations 
+	$log = $params['subject']['log_object']; // logfile object
+	$websiteId = $params['subject']['website_id']; // website id of new website
+	$tablePrefix = $params['subject']['table_prefix']; // table prefix of new website
+	$generatedDir = $params['subject']['generated_dir']; // generated dir of new website
+	$mediaDir = $params['subject']['media_dir']; // media dir of new website
+
+	rex_website_manager_utils::logQuery($log, $sql, 'HERE SQL STATEMENT WITH ' . $newTablePrefix . ' USAGE');
+});
+?>
 ```
 
 Kompatible AddOns
