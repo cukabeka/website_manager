@@ -53,7 +53,6 @@ API (Auszug)
 ------------
 
 ```php
-<?php
 // ausgabe des artikels mit id = 10 von website mit id = 5 
 echo $REX['WEBSITE_MANAGER']->getWebsite(5)->getArticle(10);
 
@@ -74,14 +73,13 @@ $REX['WEBSITE_MANAGER']->websiteSwitch(2, function() {
 $REX['WEBSITE_MANAGER']->masterWebsiteSwitch(function() {
 	// hier drin gilt jetzt website id = 1 (master)
 });
-?>
 ```
 
 AddOns mit gleichem Datenbestand
 --------------------------------
 
 * AddOns die für alle Websites die gleichen Daten liefern sollen werden normal für die Master Website installiert.
-* In der `create_website.before.inc.php` bzw. `create_website.after.inc.php` Datei (zu finden unter `/include/data/addons/website_manager/custom/`) muss ein VIEW auf die enstprechende Master-Tabelle angelegt werden. Siehe z.B. Image Manager AddOn: https://github.com/RexDude/website_manager/blob/v1.3.0/classes/class.rex_website_manager.inc.php#L382-L384
+* Entweder über den Extenion Point `WEBSITE_AFTER_CREATED` (empfohlen!, Codebeispiel s.u.) oder in der `create_website.after.inc.php` Datei (zu finden unter `/include/data/addons/website_manager/custom/`) muss ein VIEW auf die enstprechende Master-Tabelle angelegt werden. Siehe z.B. Image Manager AddOn: https://github.com/RexDude/website_manager/blob/v1.3.0/classes/class.rex_website_manager.inc.php#L382-L384
 * Bei jedem Website hinzufügen werden dann automatisch die VIEWS angelegt so dass jedes Addon dann an die gleichen Daten kommt.
 
 AddOns mit unterschiedlichem Datenbestand
@@ -97,7 +95,6 @@ AddOns fitmachen für den Website Manager
 Damit andere AddOns auch problemlos mit dem Website Manager zusammentun, muss man hauptsächlich folgende REDAXO Variablen einsetzen, anstelle der sonst üblichen hartcodierten Strings:
 
 ```php
-<?php
 $REX['TABLE_PREFIX']
 $REX['MEDIAFOLDER']
 
@@ -105,19 +102,16 @@ $REX['MEDIAFOLDER']
 $REX['MEDIA_DIR']
 $REX['MEDIA_ADDON_DIR']
 $REX['GENERATED_PATH']
-?>
 ```
 
 Wichtig: Um Abwärtskompatibilität der AddOns mit älteren REDAXO Versionen zu gewährleisten, sollten immer über `isset()` geprüft werden ob die Variablen überhaupt exisitieren. Hier mal ein Beispiel: 
 
 ```php
-<?php
 if (isset($REX['MEDIA_DIR'])) {
 	return $REX['MEDIA_DIR'];
 } else {
 	return 'files';
 }
-?>
 ```
 
 Website Manager Extension Points
@@ -132,8 +126,7 @@ Es gibt 4 Extension Points über die man eigenen Code ausführen kann, z.B. um e
 
 Codebeispiel:
 
-```
-<?php
+```php
 rex_register_extension('WEBSITE_AFTER_CREATED', function($params) {
 	global $REX;
 
@@ -146,7 +139,6 @@ rex_register_extension('WEBSITE_AFTER_CREATED', function($params) {
 
 	rex_website_manager_utils::logQuery($log, $sql, 'HERE SQL STATEMENT WITH ' . $newTablePrefix . ' USAGE');
 });
-?>
 ```
 
 Kompatible AddOns
