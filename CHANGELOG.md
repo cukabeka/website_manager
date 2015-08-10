@@ -4,7 +4,7 @@ Website Manager - Changelog
 ### Version 3.1.0 - 10. August 2015
 
 * Fixed #53: Beim Abspeichern der Einstellungen gingen diese verloren (nur Einstellungen die disabled waren)
-* Folgende Extension Points inkl. Beispiel-Anwwendung in der Readme wurden hinzugefügt: `WEBSITE_BEFORE_CREATED`, `WEBSITE_AFTER_CREATED`, `WEBSITE_BEFORE_DESTROYED`, `WEBSITE_AFTER_DESTROYED`. Es wird empfohlen die Extension Points zu nutzen anstelle der Custom Dateien (z.B. `create_website.after.inc.php`)
+* Folgende Extension Points inkl. Beispiel-Anwendung in der Readme wurden hinzugefügt: `WEBSITE_BEFORE_CREATED`, `WEBSITE_AFTER_CREATED`, `WEBSITE_BEFORE_DESTROYED`, `WEBSITE_AFTER_DESTROYED`. Es wird empfohlen die Extension Points zu nutzen anstelle der Custom Dateien (z.B. `create_website.after.inc.php`)
 
 ### Version 3.0.1 - 04. Februar 2015
 
