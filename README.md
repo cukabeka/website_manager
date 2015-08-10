@@ -79,7 +79,7 @@ AddOns mit gleichem Datenbestand
 --------------------------------
 
 * AddOns die für alle Websites die gleichen Daten liefern sollen werden normal für die Master Website installiert.
-* Entweder über den Extenion Point `WEBSITE_AFTER_CREATED` (empfohlen Methode! Codebeispiel s.u.) oder in der `create_website.after.inc.php` Datei (zu finden unter `/include/data/addons/website_manager/custom/`) muss ein VIEW auf die enstprechende Master-Tabelle angelegt werden. Siehe z.B. Image Manager AddOn: https://github.com/RexDude/website_manager/blob/v1.3.0/classes/class.rex_website_manager.inc.php#L382-L384
+* Entweder über den Extenion Point `WEBSITE_AFTER_CREATED` (empfohlen Methode! Codebeispiel unter s.u. "Website Manager Extension Points") oder in der `create_website.after.inc.php` Datei (zu finden unter `/include/data/addons/website_manager/custom/`) muss ein VIEW auf die enstprechende Master-Tabelle angelegt werden. Siehe z.B. Image Manager AddOn: https://github.com/RexDude/website_manager/blob/v1.3.0/classes/class.rex_website_manager.inc.php#L382-L384
 * Bei jedem Website hinzufügen werden dann automatisch die VIEWS angelegt so dass jedes Addon dann an die gleichen Daten kommt.
 
 AddOns mit unterschiedlichem Datenbestand
