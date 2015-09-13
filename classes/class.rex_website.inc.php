@@ -211,6 +211,37 @@ class rex_website {
 		return $articleContent;
 	}
 
+	public function getOOArticle($articleId, $clangId = null) {
+		global $REX;
+
+		// set rex vars for this website
+		$this->switchRexVars();
+
+		// get article content
+		$article = new rex_article($articleId, $clangId);
+		
+		// restore rex vars for current website
+		$REX['WEBSITE_MANAGER']->getCurrentWebsite()->switchRexVars();
+
+		return $article;
+	}
+		
+	
+	public function getOOCategory($categoryId, $clangId = null) {
+		global $REX;
+
+		// set rex vars for this website
+		$this->switchRexVars();
+
+		// get article content
+		$category = OOCategory::getCategoryById($categoryId, $clangId);
+		
+		// restore rex vars for current website
+		$REX['WEBSITE_MANAGER']->getCurrentWebsite()->switchRexVars();
+
+		return $category;
+	}
+
 	public function getSlice($sliceId, $clangId = false) {
 		global $REX;
 
